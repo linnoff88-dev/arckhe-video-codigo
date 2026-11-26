@@ -11,7 +11,7 @@ const HELP = `Verifica se cada texto da composição fica na tela o tempo de ser
 
 Uso: node scripts/checar-leitura.mjs --project P [--width 1080 --height 1920] [opções]
 
-Regra INEMA (padrão): precisa = máx(--min, --pad + palavras × --por-palavra, --pad + letras ÷ --cps)
+Regra ARCKHÉ (padrão): precisa = máx(--min, --pad + palavras × --por-palavra, --pad + letras ÷ --cps)
   --por-palavra 0.3  --pad 1.0  --min 1.5  --cps 15   (o lemo-opuscar usa só letras: 15/s + 1,5 s)
 Conta a partir do 1º quadro em que o bloco está inteiro na tela (opacidade ≥ --opacidade, padrão 0.6)
 até ele sumir. Só a 1ª aparição conta. Texto que cresce (máquina de escrever) é o mesmo bloco; a conta usa o texto inteiro.

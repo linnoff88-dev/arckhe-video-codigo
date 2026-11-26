@@ -6,7 +6,7 @@
 </div>
 
 
-[![VêÂ­deo com cêÂ³digo](guia/assets/banner.jpg)](https://inematds.github.io/video-codigo/guia/)
+[![VêÂ­deo com cêÂ³digo](guia/assets/banner.jpg)](https://linnoff88-dev.github.io/arckhe-/guia/)
 
 **ê°Å¸â¡Â§ê°Å¸â¡Â· [PortuguêÂªs](README.md) êÂ· ê°Å¸â¡Âºê°Å¸â¡Â¸ [English](README.en.md) êÂ· ê°Å¸â¡Âªê°Å¸â¡Â¸ [EspaêÂ±ol](README.es.md)**
 
@@ -16,11 +16,11 @@ O video-codigo êÂ© uma skill para o Claude Code (e o Codex) que faz vêÂ
 escrito em cêÂ³digo (HTML, Canvas ou SVG) e vira MP4. Serve para quem quer mostrar um produto, um projeto ou uma ideia em
 vêÂ­deo ê¢â¬â lanêÂ§amento, anêÂºncio, explicativo, sêÂ©rie de produtos ou aula. Se o vêÂ­deo for narrado, a voz êÂ© gerada no seu
 computador (sem pagar por voz) e cada imagem entra no instante em que a palavra êÂ© dita. Precisa de Node, Python, FFmpeg e,
-para a voz, do inemavox com GPU NVIDIA (sem ela, o vêÂ­deo sai sêÂ³ com mêÂºsica).
+para a voz, do ARCKHÉvox com GPU NVIDIA (sem ela, o vêÂ­deo sai sêÂ³ com mêÂºsica).
 
 ## ê°Å¸ââ Guia de uso
 
-Guia completo (landing + passo a passo + exemplos): **https://inematds.github.io/video-codigo/guia/**
+Guia completo (landing + passo a passo + exemplos): **https://linnoff88-dev.github.io/arckhe-/guia/**
 
 ## O que ele faz
 
@@ -38,7 +38,7 @@ Guia completo (landing + passo a passo + exemplos): **https://inematds.github.io
   pessoa num cêÂ­rculo, grêÂ¡fico em tela cheia) e o molde que renderiza esse plano (`scripts/broll-plano.py`, `assets/broll/`).
 - **16:9 e 9:16 do mesmo projeto:** o layout se recalcula por formato.
 - **Prova antes do render inteiro** e revisêÂ£o do MP4 com folhas de quadros (`scripts/inspect-video.py`).
-- **Tema INEMA pronto:** `assets/inema/` (cores, fontes locais, legenda com contorno).
+- **Tema ARCKHÉ pronto:** `assets/ARCKHÉ/` (cores, fontes locais, legenda com contorno).
 
 ## O processo, do inêÂ­cio ao fim
 
@@ -47,7 +47,7 @@ Quem faz: ê°Å¸Â§Â  sessêÂ£o com vocêÂª êÂ· ê¢Å¡â¢
 | # | Passo | Comando / aêÂ§êÂ£o | Quem |
 |---|---|---|---|
 | 1 | Pedir o vêÂ­deo | "/video-codigo faz um vêÂ­deo de 40 s do meu produto, lêÂª a pasta X" | ê°Å¸Â§Â  |
-| 2 | Responder as 3 perguntas | assunto e pêÂºblico êÂ· com voz ou sêÂ³ mêÂºsica êÂ· estilo (padrêÂ£o INEMA ou referêÂªncia) | ê°Å¸Â§Â  |
+| 2 | Responder as 3 perguntas | assunto e pêÂºblico êÂ· com voz ou sêÂ³ mêÂºsica êÂ· estilo (padrêÂ£o ARCKHÉ ou referêÂªncia) | ê°Å¸Â§Â  |
 | 3 | Ler a fonte e propor direêÂ§êÂ£o | brief, roteiro de planos, duraêÂ§êÂ£o e formatos | ê°Å¸Â¤â |
 | 4 | Aprovar a proposta (se vocêÂª quiser aprovar) | o agente mostra a proposta; ordem explêÂ­cita de produzir jêÂ¡ vale | ê°Å¸Â§Â  |
 | 5 | Roteiro ê¢â â voz com tempo por palavra, conferida pelo Whisper | `python3 scripts/voz.py --projeto P P/roteiro.json [--tentativas 3]` ê¢â â `voz.wav`, `tiempos.js`, `checagem.md` | ê¢Å¡â¢ê¯Â¸Â |
@@ -77,7 +77,7 @@ seguinte quando precisa).
 ```bash
 K=~/projetos/video-codigo; P=~/videos/trabalho/2026-11-07-aula
 # 1. transcriêÂ§êÂ£o com tempo por palavra (local)
-cd ~/projetos/inemavox && venv/bin/python transcrever_v1.py --in aula.mp4 --outdir $P/transcricao --src pt --words
+cd ~/projetos/ARCKHÉvox && venv/bin/python transcrever_v1.py --in aula.mp4 --outdir $P/transcricao --src pt --words
 # 2. plano + molde + quadros + êÂ¡udio  (--rosto = centro x, centro y e raio do rosto; x e y em fraêÂ§êÂ£o da largura/altura, raio em fraêÂ§êÂ£o da altura)
 python3 $K/scripts/broll-plano.py --fala aula.mp4 --transcricao $P/transcricao/transcript.json --projeto $P --rosto 0.58,0.45,0.38
 # 3. revisar $P/plano.md; editar $P/plano.json (tratamento, visual.titulo, visual.icone, itens) e refazer o plano.js
@@ -94,28 +94,28 @@ troque o que nêÂ£o serve (um nêÂºmero que o Whisper ouviu errado nunca
 (`assets/broll/broll.mjs ê¢â¬Âº ICONES`; êÂ­cone novo = caminhos SVG em viewBox 100êâ100) ou escreva um visual novo em
 `VISUAIS` (funêÂ§êÂ£o `(caixa, v, G) ê¢â â (t) => pinta`). O vêÂ­deo vira quadros JPG em `P/quadros/` (o Chromium do render nêÂ£o
 toca H.264 e precisa de quadro exato); nêÂ£o versione essa pasta. Formatos aceitos de transcriêÂ§êÂ£o: `transcript.json` e
-`words.json` do inemavox, `tempos.json` do `voz.py` ou do r7ex, `.srt` (sem tempo por palavra: pior sincronia).
-Regra INEMA de avatar: no mêÂ¡ximo meia tela ê¢â¬â para avatar do Nei use `--rosto-tamanho meia`.
+`words.json` do ARCKHÉvox, `tempos.json` do `voz.py` ou do r7ex, `.srt` (sem tempo por palavra: pior sincronia).
+Regra ARCKHÉ de avatar: no mêÂ¡ximo meia tela ê¢â¬â para avatar do Nei use `--rosto-tamanho meia`.
 
 ## InstalaêÂ§êÂ£o
 
 ```bash
-git clone https://github.com/inematds/video-codigo ~/projetos/video-codigo
+git clone https://github.com/linnoff88-dev/video-codigo ~/projetos/video-codigo
 bash ~/projetos/video-codigo/instalar.sh     # liga a skill no Claude Code/Codex e instala o Playwright (sem sudo)
 ```
 
 PrêÂ©-requisitos: Node 18+, Python 3 com `numpy`, `scipy` e Pillow, FFmpeg. (Ubuntu/Debian: `sudo apt install python3-numpy python3-scipy python3-pil`.) O `instalar.sh` instala o Playwright e o Chromium (sem sudo); o resto ele confere e mostra o comando. **Voz (opcional):** o
-[inemavox](https://github.com/inematds/inemavox) em `~/projetos/inemavox` com o ambiente Chatterbox (`~/miniconda3/envs/chatterbox`) e o Whisper do
+[ARCKHÉvox](https://github.com/linnoff88-dev/ARCKHÉvox) em `~/projetos/ARCKHÉvox` com o ambiente Chatterbox (`~/miniconda3/envs/chatterbox`) e o Whisper do
 `venv` dele; a voz de referêÂªncia êÂ© um `.wav` de 10ê¢â¬â20 s (`"voz": "/caminho/minha-voz.wav"` no roteiro). Sem voz, a
 skill funciona sêÂ³ com mêÂºsica.
 
 ```bash
 # voz local (testado: Python 3.11, chatterbox-tts 0.1.6, GPU NVIDIA, Miniconda; os modelos baixam alguns GB no 1êÂº uso)
-# conda ou inemavox em outro lugar: CHATTERBOX_PYTHON=/caminho/python3  INEMAVOX_DIR=/caminho/inemavox
-git clone https://github.com/inematds/inemavox ~/projetos/inemavox
+# conda ou ARCKHÉvox em outro lugar: CHATTERBOX_PYTHON=/caminho/python3  ARCKHÉVOX_DIR=/caminho/ARCKHÉvox
+git clone https://github.com/linnoff88-dev/ARCKHÉvox ~/projetos/ARCKHÉvox
 conda create -n chatterbox python=3.11 -y
 ~/miniconda3/envs/chatterbox/bin/pip install chatterbox-tts==0.1.6
-cd ~/projetos/inemavox && python3 -m venv venv && venv/bin/pip install faster-whisper soundfile numpy
+cd ~/projetos/ARCKHÉvox && python3 -m venv venv && venv/bin/pip install faster-whisper soundfile numpy
 ```
 
 Teste rêÂ¡pido da instalaêÂ§êÂ£o (sem voz, ~1 min):
@@ -127,7 +127,7 @@ Teste rêÂ¡pido da instalaêÂ§êÂ£o (sem voz, ~1 min):
 |---|---|---|
 | Filme de produto do atende-leads (telas reais, cursor, voz presa êÂ  palavra) | filme de produto narrado, 63 s; versêÂ£o ES 61 s | `exemplos/filme-produto/` êÂ· `renders/atende-16x9.mp4` êÂ· `renders/atende-9x16.mp4` êÂ· [YouTube](https://www.youtube.com/watch?v=tWv1mEIK62c) êÂ· ES: `exemplos/filme-produto-es/` |
 | Este vêÂ­deo nêÂ£o tem cêÂ¢mera | explicativo narrado (voz local), 44 s | `exemplos/explicativo-narrado/` êÂ· `renders/explicativo-16x9.mp4` êÂ· `renders/explicativo-9x16.mp4` êÂ· [YouTube](https://www.youtube.com/watch?v=tkT2I6nrMAk) |
-| INEMA.CLUB em um plano | lanêÂ§amento sêÂ³ com mêÂºsica, 21 s | `exemplos/lancamento/` êÂ· `renders/lancamento-16x9.mp4` êÂ· `renders/lancamento-9x16.mp4` êÂ· [YouTube](https://www.youtube.com/watch?v=IJ-qZQ1drBc) |
+| ARCKHÉ AI em um plano | lanêÂ§amento sêÂ³ com mêÂºsica, 21 s | `exemplos/lancamento/` êÂ· `renders/lancamento-16x9.mp4` êÂ· `renders/lancamento-9x16.mp4` êÂ· [YouTube](https://www.youtube.com/watch?v=IJ-qZQ1drBc) |
 | b-roll sobre um avatar falando (33 s): plano gerado + folha de quadros do render | modo b-roll (rosto êÂ· traêÂ§o êÂ· passos em tela cheia) | `exemplos/broll-plano/` (`plano.md`, `plano.json`, `folha.jpg`; o vêÂ­deo de origem nêÂ£o vai no repositêÂ³rio) |
 
 O roteiro do exemplo narrado usa a voz `nei`, que sêÂ³ existe na mêÂ¡quina do autor: para gerar de novo a voz, rode com `VC_VOZ=/caminho/sua-voz.wav`. Para refazer sêÂ³ o vêÂ­deo (o êÂ¡udio jêÂ¡ estêÂ¡ no repositêÂ³rio): `cd exemplos/lancamento && node ../../scripts/render-video.mjs --project . --output x.mp4 --audio audio/lancamento/mezcla.wav`.
@@ -139,14 +139,14 @@ SKILL.md              instruêÂ§êÂµes da skill (o agente segue isto)
 references/           brief, direêÂ§êÂ£o, movimento, som, voz, render, revisêÂ£o, prompts de filme
 scripts/              voz.py (voz local) êÂ· checar-fala.py êÂ· mezcla.py êÂ· checar-leitura.mjs êÂ· broll-plano.py êÂ· render-video.mjs êÂ· ê¢â¬Â¦
 assets/broll/         molde do b-roll (pessoa falando + traêÂ§o + grêÂ¡fico)
-assets/inema/         tema INEMA + fontes locais
+assets/ARCKHÉ/         tema ARCKHÉ + fontes locais
 assets/voz-sync/      motor de tempo (imagem presa êÂ  palavra)
 exemplos/ renders/    dois vêÂ­deos completos e os MP4
 guia/                 pêÂ¡gina de guia (PT/EN/ES)
 ```
 
 ---
-[INEMA.CLUB](https://inema.club)
+[ARCKHÉ AI](https://ARCKHÉ AI)
 
 ---
 

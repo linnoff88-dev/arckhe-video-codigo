@@ -8,11 +8,11 @@ Uso:
 roteiro.json (as chaves em espanhol do formato antigo também valem: bloques, hueco_bloques, diccionario):
   {"id": "lancamento", "pausa": 0.2, "intervalo_blocos": 0.6,
    "voz": "nei",                                   (opcional: nome em VC_VOZES ou caminho .wav)
-   "dicionario": [["INEMA", "inema"]],             (opcional: tela → fala)
+   "dicionario": [["ARCKHÉ", "ARCKHÉ"]],             (opcional: tela → fala)
    "blocos": [{"id": "abertura", "frases": [{"id": "hook", "texto": "..."}]}]}
 
 Como funciona:
-  1. Cada frase vira uma fala no Chatterbox (inemavox, GPU) com a voz clonada (padrêo: nei).
+  1. Cada frase vira uma fala no Chatterbox (ARCKHÉvox, GPU) com a voz clonada (padrêo: nei).
   2. O Whisper large-v3 local ouve cada frase, mede a semelhança com o texto e dá o tempo de cada palavra.
      Frase abaixo de VC_SIM_MIN (0,80), ou com um número ouvido errado, é gerada de novo (--tentativas, padrêo 3 no total).
      Cada rodada fica registrada em DIR/voz/<id>/checagem.md (semelhança, tentativas e o que o Whisper OUVIU) —
@@ -21,7 +21,7 @@ Como funciona:
   3. Junta tudo com `pausa` entre frases e `intervalo_blocos` entre blocos.
 Saída em DIR/voz/<id>/: voz.wav (mono, 48 kHz), tiempos.json e tiempos.js (window.TIEMPOS) com bloques, frases e
 palabras — o formato que assets/voz-sync/engine.mjs lê.
-Variáveis: VC_VOZ · VC_VOZES (pasta das vozes) · VC_IDIOMA (pt) · VC_SIM_MIN · VC_TENTATIVAS · CHATTERBOX_PYTHON · INEMAVOX_DIR.
+Variáveis: VC_VOZ · VC_VOZES (pasta das vozes) · VC_IDIOMA (pt) · VC_SIM_MIN · VC_TENTATIVAS · CHATTERBOX_PYTHON · ARCKHÉVOX_DIR.
 """
 import argparse
 import hashlib
@@ -35,7 +35,7 @@ import sys
 
 HOME = pathlib.Path.home()
 AQUI = pathlib.Path(__file__).resolve().parent
-VOX = pathlib.Path(os.environ.get("INEMAVOX_DIR", HOME / "projetos/inemavox"))
+VOX = pathlib.Path(os.environ.get("ARCKHÉVOX_DIR", HOME / "projetos/ARCKHÉvox"))
 CB_PY = os.environ.get("CHATTERBOX_PYTHON", str(HOME / "miniconda3/envs/chatterbox/bin/python3"))
 VOX_PY = str(VOX / "venv/bin/python")
 VOZES = pathlib.Path(os.environ.get("VC_VOZES", HOME / "projetos/timesmkt3/media/voice-refs"))
@@ -55,7 +55,7 @@ SR = 48000
 
 # O que aparece na tela → o que a voz lê. O mais longo primeiro.
 DICIONARIO = [
-    (r"\bINEMA\.CLUB\b", "Inema Club"), (r"\bLLM\b", "éle éle ême"), (r"\bIA\b", "i a"), (r"\bAPI\b", "a pê i"), (r"\bMP4\b", "ême pê quatro"),
+    (r"\bARCKHÉ\.CLUB\b", "ARCKHÉ Club"), (r"\bLLM\b", "éle éle ême"), (r"\bIA\b", "i a"), (r"\bAPI\b", "a pê i"), (r"\bMP4\b", "ême pê quatro"),
     (r"\bHTML\b", "agá tê ême éle"), (r"\bSVG\b", "ésse vê gê"), (r"\bCRM\b", "cê érre ême"),
     (r"\bClaude Code\b", "Clód Côud"), (r"\bClaude\b", "Clód"), (r"\bGitHub\b", "guit rêb"),
     (r"\b(16|9|4|3|1|5|21)\s*[:x×]\s*(9|16|3|4|1|5)\b", r"\1 por \2"),   # formato de tela: o TTS lia "16:9" como "16 maio a 9"

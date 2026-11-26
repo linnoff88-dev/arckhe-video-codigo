@@ -11,5 +11,5 @@
 | f07 | 20.8–25.4 | cheio | Sêo três passos. Escolher a tarefa, testar um pedido claro e conferir o que saiu. | «SêO TRÊS PASSOS»: Escolher a tarefa / testar um pedido claro / conferir o que saiu | sequência de passos: mostrar ordena melhor que falar |
 | f08 | 25.5–27.3 | segue | Messa também o tempo de revisêo. | (continua o gráfico anterior) | o visual anterior ainda está sendo lido |
 | f09 | 27.4–29.5 | pip | Só automatize depois de comprovar que ajuda. ajuda. | traço: engrenagem + «AUTOMATIZE» | um conceito: desenhado em traço, pessoa no canto |
-| f10 | 29.5–31.1 | rosto | Está tudo no inema .club. | — | fala pessoal / chamada: a pessoa é o assunto |
+| f10 | 29.5–31.1 | rosto | Está tudo no ARCKHÉ .club. | — | fala pessoal / chamada: a pessoa é o assunto |
 | f11 | 31.4–32.8 | rosto | Ou me pede o link aqui nos comentários. | — | fechamento: termina na pessoa |

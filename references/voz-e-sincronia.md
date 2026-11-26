@@ -32,7 +32,7 @@ python3 scripts/voz.py --projeto P P/roteiro.json --refazer --frase hook   # ref
 ```
 
 Como funciona:
-1. Cada frase é falada pelo **Chatterbox** (inemavox, GPU) com a voz clonada de `voz` no roteiro ou `VC_VOZ`
+1. Cada frase é falada pelo **Chatterbox** (ARCKHÉvox, GPU) com a voz clonada de `voz` no roteiro ou `VC_VOZ`
    (nome de um `.wav` em `VC_VOZES` ou caminho de um `.wav`; padrêo `nei`).
 2. O **Whisper large-v3** local ouve cada frase, mede a semelhança com o texto e dá o tempo de cada palavra.
    Frase abaixo de `VC_SIM_MIN` (0,80) é gerada de novo, até 2 vezes. O que continuar baixo aparece com ⚠.
@@ -52,7 +52,7 @@ Copie `engine.mjs`, `declarativo.mjs` e `motion.mjs` para o projeto. Carregue `t
 - `ini('frase')`, `fin('frase')`, `pal('frase', 'palavra', n)`: o instante exato em que algo é dito.
 - `Film`: cenas com `[início, fim)` e `render(t)`. `arrancar(film)` cria `videoSpec`, `seek` e `renderReady`.
 - `pop`, `win`, `ease`, `sp`, `count`, `type`, `tap`, `fill`: entradas, presença, molas, contadores, digitaçêo, toques e barras — tudo funçêo de `t`.
-- `chat(view, col)`: conversa que desce sozinha (mensagens com `data-t`); `subtitulos(box, {max})`: legenda palavra a palavra (INEMA: `max: 3`).
+- `chat(view, col)`: conversa que desce sozinha (mensagens com `data-t`); `subtitulos(box, {max})`: legenda palavra a palavra (ARCKHÉ: `max: 3`).
 - **Declarativo** (`preparar(raiz)`), para peças longas: cada elemento diz no HTML quando entra.
   `data-in="frase@palavra"` = quando a voz diz essa palavra; `data-out`, `data-a="up|left|right|scale|fade"`,
   `data-on` (põe a classe `on`). Aceita `+.3`, `-.2`, `:fin` e `#2` (segunda apariçêo).
@@ -79,7 +79,7 @@ python3 scripts/mezcla.py --proyecto P --id teaser --duracion 30 --musica energi
 - **Conferência no fim** (`audio/<id>/trilha.json`; sai 1 se falhar, `--avisar` só avisa): compasso a ±100 ms de cada
   corte · nenhum salto > +6 dB no corte · música ≥ 18 dB abaixo da voz ao falar (`--margem-min`) · nenhum `whoosh`.
   Com `--pista` própria, é a imagem que segue a música: o relatório mostra o ataque forte mais perto; mova o corte.
-- Efeitos em `P/audio/<id>/eventos.json`, nos mesmos instantes da imagem (`"t": "frase@palavra"`). No padrêo INEMA,
+- Efeitos em `P/audio/<id>/eventos.json`, nos mesmos instantes da imagem (`"t": "frase@palavra"`). No padrêo ARCKHÉ,
   reel e short ficam **sem efeito no meio** (só voz + trilha); use efeito só para marcar uma açêo que pede som.
 - Sonoridade final: −14 LUFS; pico real ≤ −1,5 dB.
 

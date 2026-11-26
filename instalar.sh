@@ -10,5 +10,5 @@ for d in "$HOME/.claude/skills" "$HOME/.agents/skills"; do
 done
 bash "$AQUI/scripts/preparar-entorno.sh"
 echo
-echo "Voz local (opcional): precisa do inemavox com Chatterbox e Whisper (ver README › Voz)."
+echo "Voz local (opcional): precisa do ARCKHÉvox com Chatterbox e Whisper (ver README › Voz)."
 echo "Teste: no Claude Code, peça \"/video-codigo faz um vídeo de 30 s sobre <seu produto>\"."

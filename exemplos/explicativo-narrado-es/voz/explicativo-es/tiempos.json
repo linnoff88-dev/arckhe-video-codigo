@@ -106,7 +106,7 @@
   {
    "id": "cta",
    "bloque": "fecho",
-   "texto": "El kit es abierto. Está todo en INEMA.CLUB.",
+   "texto": "El kit es abierto. Está todo en ARCKHÉ AI.",
    "inicio": 35.631,
    "fin": 38.271
   }
@@ -683,7 +683,7 @@
    "frase": "cta"
   },
   {
-   "texto": "INEMA.CLUB.",
+   "texto": "ARCKHÉ AI.",
    "inicio": 37.627,
    "fin": 38.271,
    "frase": "cta"

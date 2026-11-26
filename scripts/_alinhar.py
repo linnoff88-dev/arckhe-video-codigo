@@ -1,4 +1,4 @@
-"""Ajudante do voz.py — roda no Python do inemavox (faster-whisper + soundfile).
+"""Ajudante do voz.py — roda no Python do ARCKHÉvox (faster-whisper + soundfile).
 Uso: python _align.py <pedido.json> <saida.json>
 pedido = {"lang": "pt", "segs": [{"wav": ..., "text": ...}, ...]}
 Para cada frase: corta o silêncio da ponta, transcreve com tempo por palavra e mede a semelhança com o texto.
@@ -77,7 +77,7 @@ with open("/tmp/explicavideos-whisper.lock", "w") as lock:
             src = wav.replace(".wav", "_p.wav"); z = np.zeros(int(sr * pad), dtype="float32")
             sf.write(src, np.concatenate([z, a, z]), sr)
         segs, _ = model.transcribe(src, language=req.get("lang", "pt"), word_timestamps=True,
-                                   condition_on_previous_text=False, initial_prompt=req.get("prompt", "INEMA, Nei Maldaner."))
+                                   condition_on_previous_text=False, initial_prompt=req.get("prompt", "ARCKHÉ, Nei Maldaner."))
         heard = [(w.word.strip(), max(0.0, float(w.start) - pad), max(0.0, float(w.end) - pad)) for s in segs for w in (s.words or []) if w.word.strip()]
         want = sg["text"].split()
         a, b = [norm(w) for w in want], [norm(h[0]) for h in heard]

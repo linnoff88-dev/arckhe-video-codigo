@@ -214,7 +214,7 @@ def ataques(x):
 
 def conferir(cortes, mus, voz, habla, eventos, margem_min, fora_min=.1, susto_max=6.0, cru=None, fortes=None):
     """Cada corte perto de um ataque forte da música (±100 ms), sem salto de volume (> +6 dB contra o segundo antes),
-    voz na frente (música ≥ margem_min dB abaixo enquanto fala) e nenhum whoosh (regra INEMA)."""
+    voz na frente (música ≥ margem_min dB abaixo enquanto fala) e nenhum whoosh (regra ARCKHÉ)."""
     fl, falhas, linhas = ataques(mus if cru is None else cru), [], []   # ataques na música crua; volume na mixada
     for c in cortes:
         i0, i1 = max(0, int((c - 2) / .01)), min(len(fl), int((c + 2) / .01))
@@ -241,7 +241,7 @@ def conferir(cortes, mus, voz, habla, eventos, margem_min, fora_min=.1, susto_ma
         margem = rms_db(voz, habla) - rms_db(mus, habla)
         if margem < margem_min: falhas.append(f"música só {margem:.1f} dB abaixo da voz ao falar (mínimo {margem_min:.0f})")
     if any(ev["tipo"] == "whoosh" for ev in eventos):
-        falhas.append("eventos.json usa whoosh — regra INEMA: sem som de movimento de tela (troque por pop/click/ding ou tire)")
+        falhas.append("eventos.json usa whoosh — regra ARCKHÉ: sem som de movimento de tela (troque por pop/click/ding ou tire)")
     return {"cortes": linhas, "musica_abaixo_da_voz_db": None if margem is None else round(margem, 1), "falhas": falhas}
 
 

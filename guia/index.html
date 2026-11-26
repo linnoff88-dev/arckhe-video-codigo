@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>video-codigo — vídeos feitos com código</title>
 <meta name="description" content="Skill para Claude Code e Codex que faz vídeos sem câmera: cada quadro em código, voz local presa à palavra, 16:9 e 9:16.">
-<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/video-codigo/guia/">
-<link rel="alternate" hreflang="en" href="https://inematds.github.io/video-codigo/guia/en/">
-<link rel="alternate" hreflang="es" href="https://inematds.github.io/video-codigo/guia/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://linnoff88-dev.github.io/arckhe-/guia/">
+<link rel="alternate" hreflang="en" href="https://linnoff88-dev.github.io/arckhe-/guia/en/">
+<link rel="alternate" hreflang="es" href="https://linnoff88-dev.github.io/arckhe-/guia/es/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -39,8 +39,8 @@
   nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
   nav .brand .emoji{font-size:1.25rem}
   nav .sep{color:var(--mut);opacity:.45}
-  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
-  nav .inema:hover{filter:brightness(1.15)}
+  nav .ARCKHÉ{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .ARCKHÉ:hover{filter:brightness(1.15)}
   nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
   nav .pro:hover{filter:brightness(1.15)}
   nav .clubpro{display:inline-flex;align-items:center;gap:6px}
@@ -107,9 +107,9 @@
   <a class="brand" href="#top"><span class="emoji">🎬</span> video-codigo</a>
   <span class="sep">|</span>
   <span class="clubpro">
-    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <a class="ARCKHÉ" href="https://ARCKHÉ AI" target="_blank" rel="noopener">ARCKHÉ AI</a>
     <span class="sep">-</span>
-    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+    <a class="pro" href="https://ARCKHÉ.pro" target="_blank" rel="noopener">PRO</a>
   </span>
   <div class="links">
     <a class="sec" href="#oque">O que é</a>
@@ -119,7 +119,7 @@
     <a class="sec" href="#roadmap">Próximos passos</a>
     <span class="lang"><a class="on" href="./">PT</a><a href="en/">EN</a><a href="es/">ES</a></span>
     <button class="tgl" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
-    <a class="btn" href="https://github.com/inematds/video-codigo" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://github.com/linnoff88-dev/video-codigo" target="_blank" rel="noopener">GitHub</a>
   </div>
 </div></nav>
 
@@ -132,7 +132,7 @@
       <p class="lead">Você responde três perguntas e o agente escreve cada quadro em HTML, renderiza o MP4 em 16:9 e 9:16 e, se quiser narraçêo, prende cada imagem à palavra que a sua voz está dizendo.</p>
       <div class="cta">
         <a class="btn" href="#guia">Começar o guia</a>
-        <a class="btn ghost" href="https://github.com/inematds/video-codigo" target="_blank" rel="noopener">Ver no GitHub</a>
+        <a class="btn ghost" href="https://github.com/linnoff88-dev/video-codigo" target="_blank" rel="noopener">Ver no GitHub</a>
       </div>
     </div>
     <figure><img src="assets/banner.jpg" alt="Banner: vídeo com código, seu produto em vídeo sem câmera e sem editor"></figure>
@@ -141,7 +141,7 @@
 
 <section id="resumo" class="resumo"><div class="wrap">
   <span class="chip">Em resumo</span>
-  <p>O video-codigo é uma skill (um pacote de instruções e scripts) para o Claude Code e o Codex, os agentes de código da Anthropic e da OpenAI, que faz vídeos sem câmera e sem editor: cada quadro é escrito em código (HTML, Canvas ou SVG) e vira MP4. Serve para quem quer mostrar um produto, um projeto ou uma ideia em vídeo — lançamento, anúncio, explicativo ou aula. Se o vídeo for narrado, a voz é gerada no seu computador, sem pagar por voz, e cada imagem entra no instante em que a palavra é dita. Para usar, você precisa de Node, Python e FFmpeg; para a voz, do inemavox com GPU NVIDIA (sem ela, o vídeo sai só com música).</p>
+  <p>O video-codigo é uma skill (um pacote de instruções e scripts) para o Claude Code e o Codex, os agentes de código da Anthropic e da OpenAI, que faz vídeos sem câmera e sem editor: cada quadro é escrito em código (HTML, Canvas ou SVG) e vira MP4. Serve para quem quer mostrar um produto, um projeto ou uma ideia em vídeo — lançamento, anúncio, explicativo ou aula. Se o vídeo for narrado, a voz é gerada no seu computador, sem pagar por voz, e cada imagem entra no instante em que a palavra é dita. Para usar, você precisa de Node, Python e FFmpeg; para a voz, do ARCKHÉvox com GPU NVIDIA (sem ela, o vídeo sai só com música).</p>
 </div></section>
 
 <section id="oque"><div class="wrap">
@@ -170,7 +170,7 @@
     <span>revisêo</span>
   </div>
   <div class="grid g3" style="margin-top:26px">
-    <div class="card"><h3>1 · As perguntas</h3><p><b>Sobre o que é, e para quem?</b> (pode ser uma pasta, um repositório ou um site para ler) · <b>Com voz ou só música?</b> · <b>Qual estilo?</b> — o padrêo INEMA ou um vídeo de referência.</p></div>
+    <div class="card"><h3>1 · As perguntas</h3><p><b>Sobre o que é, e para quem?</b> (pode ser uma pasta, um repositório ou um site para ler) · <b>Com voz ou só música?</b> · <b>Qual estilo?</b> — o padrêo ARCKHÉ ou um vídeo de referência.</p></div>
     <div class="card"><h3>2 · A voz</h3><p>Cada frase é falada pelo Chatterbox com a voz clonada; o Whisper ouve, confere e marca o tempo de cada palavra. Frase que saiu errada é gerada de novo.</p></div>
     <div class="card"><h3>3 · O render</h3><p>Um navegador sem janela abre a página, pede o quadro de cada instante (<code>window.seek(t)</code>) e o FFmpeg junta tudo com o áudio. Sem rede: fontes e imagens ficam no projeto.</p></div>
   </div>
@@ -189,15 +189,15 @@ sudo apt install python3-numpy python3-scipy python3-pil
 python3 -m pip install --user numpy scipy pillow</pre></div>
     <div class="card"><h3>Playwright + Chromium</h3><p>Um navegador sem janela, controlado por script, que tira a foto de cada quadro do vídeo. Vai para <code>~/.cache</code>.</p><pre><span class="c"># o instalar.sh (passo 1) já roda isto</span>
 bash ~/projetos/video-codigo/scripts/preparar-entorno.sh</pre></div>
-    <div class="card"><h3>Voz (opcional, precisa de GPU NVIDIA)</h3><p>A voz usa o <a href="https://github.com/inematds/inemavox" target="_blank" rel="noopener">inemavox</a> instalado em <code>~/projetos/inemavox</code>: o <b>Chatterbox</b> (modelo que fala com uma voz copiada de uma gravaçêo, a "voz clonada") e o <b>Whisper</b> (modelo que ouve o áudio e marca o tempo de cada palavra). Precisa também do <b><a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener">Miniconda</a></b> (gerenciador de ambientes Python; o instalador oficial vai para <code>~/miniconda3</code>) e de uma gravaçêo limpa de 10–20 s da sua voz em <code>.wav</code>. No primeiro uso os modelos baixam alguns GB. Se o seu conda ou o inemavox estiverem em outro lugar, aponte com <code>CHATTERBOX_PYTHON=/caminho/python3</code> e <code>INEMAVOX_DIR=/caminho/inemavox</code>. Sem GPU ou sem o inemavox, faça vídeos só com música.</p><pre><span class="c"># os três precisam existir</span>
+    <div class="card"><h3>Voz (opcional, precisa de GPU NVIDIA)</h3><p>A voz usa o <a href="https://github.com/linnoff88-dev/ARCKHÉvox" target="_blank" rel="noopener">ARCKHÉvox</a> instalado em <code>~/projetos/ARCKHÉvox</code>: o <b>Chatterbox</b> (modelo que fala com uma voz copiada de uma gravaçêo, a "voz clonada") e o <b>Whisper</b> (modelo que ouve o áudio e marca o tempo de cada palavra). Precisa também do <b><a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener">Miniconda</a></b> (gerenciador de ambientes Python; o instalador oficial vai para <code>~/miniconda3</code>) e de uma gravaçêo limpa de 10–20 s da sua voz em <code>.wav</code>. No primeiro uso os modelos baixam alguns GB. Se o seu conda ou o ARCKHÉvox estiverem em outro lugar, aponte com <code>CHATTERBOX_PYTHON=/caminho/python3</code> e <code>ARCKHÉVOX_DIR=/caminho/ARCKHÉvox</code>. Sem GPU ou sem o ARCKHÉvox, faça vídeos só com música.</p><pre><span class="c"># os três precisam existir</span>
 ls ~/miniconda3/envs/chatterbox/bin/python3 \
-   ~/projetos/inemavox/chatterbox_tts_worker.py \
-   ~/projetos/inemavox/venv/bin/python
+   ~/projetos/ARCKHÉvox/chatterbox_tts_worker.py \
+   ~/projetos/ARCKHÉvox/venv/bin/python
 <span class="c"># instalar (testado: Python 3.11, chatterbox-tts 0.1.6)</span>
-git clone https://github.com/inematds/inemavox ~/projetos/inemavox
+git clone https://github.com/linnoff88-dev/ARCKHÉvox ~/projetos/ARCKHÉvox
 conda create -n chatterbox python=3.11 -y
 ~/miniconda3/envs/chatterbox/bin/pip install chatterbox-tts==0.1.6
-cd ~/projetos/inemavox && python3 -m venv venv && venv/bin/pip install faster-whisper soundfile numpy</pre></div>
+cd ~/projetos/ARCKHÉvox && python3 -m venv venv && venv/bin/pip install faster-whisper soundfile numpy</pre></div>
   </div>
 </div></section>
 
@@ -212,7 +212,7 @@ cd ~/projetos/inemavox && python3 -m venv venv && venv/bin/pip install faster-wh
   <div class="step"><div class="b">1</div><div>
     <h3>Instale a skill</h3>
     <p>Clona o repositório, liga a skill no Claude Code e no Codex e instala o navegador do render.</p>
-<pre><span class="k">git clone https://github.com/inematds/video-codigo ~/projetos/video-codigo</span>
+<pre><span class="k">git clone https://github.com/linnoff88-dev/video-codigo ~/projetos/video-codigo</span>
 <span class="k">bash ~/projetos/video-codigo/instalar.sh</span>  <span class="c"># ✓ skill em ~/.claude/skills/video-codigo</span></pre>
     <p>Teste a instalaçêo renderizando o exemplo pronto (nêo precisa de voz nem de GPU; leva cerca de 1 minuto):</p>
 <pre><span class="k">cd ~/projetos/video-codigo/exemplos/lancamento && node ../../scripts/render-video.mjs --project . --output teste.mp4 --audio audio/lancamento/mezcla.wav --overwrite</span></pre>
@@ -221,7 +221,7 @@ cd ~/projetos/inemavox && python3 -m venv venv && venv/bin/pip install faster-wh
   <div class="step"><div class="b">2</div><div>
     <h3>Peça o vídeo</h3>
     <p>Diga o assunto e, se tiver, onde está o material. O agente faz as três perguntas que faltarem. Para narrar com a sua voz, diga onde está a gravaçêo <code>.wav</code>.</p>
-<pre><span class="k">/video-codigo</span> <span class="s">faz um vídeo de 40 s do meu app, lê a pasta ~/projetos/meu-app, narrado com a voz de ~/minha-voz.wav, estilo INEMA</span></pre>
+<pre><span class="k">/video-codigo</span> <span class="s">faz um vídeo de 40 s do meu app, lê a pasta ~/projetos/meu-app, narrado com a voz de ~/minha-voz.wav, estilo ARCKHÉ</span></pre>
   </div></div>
 
   <div class="step"><div class="b">↷</div><div>
@@ -231,7 +231,7 @@ cd ~/projetos/inemavox && python3 -m venv venv && venv/bin/pip install faster-wh
     • <code>SEG</code> — a lista das etapas: <code>a</code> e <code>b</code> sêo os segundos em que cada etapa entra e sai, <code>rot</code> e <code>sub</code> sêo o título e a linha de baixo.<br>
     • <code>S</code> — onde fica e que tamanho tem a forma amarela em cada segundo (<code>t</code>), que é o que liga uma etapa à outra.<br>
     • <code>function conteudo</code> — o desenho dentro da forma em cada etapa (módulos, página, play, terminal, conversa). Troque pelos do seu produto.</p>
-<pre><span class="k">cp -r $K/exemplos/lancamento/{index.html,motion.mjs,inema} $P/</span>
+<pre><span class="k">cp -r $K/exemplos/lancamento/{index.html,motion.mjs,ARCKHÉ} $P/</span>
 <span class="k">python3 $K/scripts/mezcla.py --projeto $P --id meuapp --duracao 21 --musica energica --lufs -14</span>  <span class="c"># mesma duraçêo do videoSpec</span></pre>
     <p>Depois vá ao passo 7 (prova) e ao 8 (render, com <code>--audio $P/audio/meuapp/mezcla.wav</code>).</p>
   </div></div>
@@ -261,7 +261,7 @@ cd ~/projetos/inemavox && python3 -m venv venv && venv/bin/pip install faster-wh
   <div class="step"><div class="b">6</div><div>
     <h3>Cenas presas à fala</h3>
     <p>Parta do exemplo narrado: ele já traz o tema, o motor de tempo e o esqueleto que o render usa (<code>videoSpec</code> = tamanho e duraçêo, <code>seek(t)</code> = desenha o instante <code>t</code>, <code>renderReady</code> = avisa quando fontes e imagens carregaram). Troque o texto das cenas e, em todo <code>pal('frase', 'palavra')</code>, <code>ini('frase')</code> e <code>data-in</code>, os <code>id</code> e palavras pelos do seu roteiro. Se sobrar algum do exemplo, o render para e diz qual: <code>Nêo encontrei «câmera» na frase hook do roteiro</code>.</p>
-<pre><span class="k">cp -r $K/exemplos/explicativo-narrado/{index.html,engine.mjs,motion.mjs,declarativo.mjs,inema} $P/</span>
+<pre><span class="k">cp -r $K/exemplos/explicativo-narrado/{index.html,engine.mjs,motion.mjs,declarativo.mjs,ARCKHÉ} $P/</span>
 <span class="k">cp $P/voz/meuapp/tiempos.js $P/</span>   <span class="c"># os tempos da sua voz</span></pre>
 <pre><span class="c">// no &lt;script&gt; do index.html: cada elemento entra na palavra dita</span>
 pop($('.code', c1), t, pal('codigo', 'escrito'));   <span class="c">// entra quando a voz diz "escrito"</span>
@@ -290,7 +290,7 @@ pop($('.onda', c1), t, ini('voz'));                 <span class="c">// entra no 
     <h3>Modo b-roll: vídeo de pessoa falando</h3>
     <p>Para aula, depoimento ou avatar: a gravaçêo nêo é cortada. A partir da transcriçêo com o tempo de cada palavra, o kit decide frase a frase o que a tela mostra — a pessoa inteira, a pessoa num círculo com o conceito desenhado em traço, ou um gráfico em tela cheia — e monta o projeto pronto para renderizar. Revise <code>$P/plano.md</code> e edite <code>$P/plano.json</code> antes do render.</p>
 <pre><span class="c"># transcriçêo local com o tempo de cada palavra</span>
-<span class="k">cd ~/projetos/inemavox && venv/bin/python transcrever_v1.py --in aula.mp4 --outdir $P/transcricao --src pt --words</span>
+<span class="k">cd ~/projetos/ARCKHÉvox && venv/bin/python transcrever_v1.py --in aula.mp4 --outdir $P/transcricao --src pt --words</span>
 <span class="c"># plano + molde + quadros + áudio; --rosto = onde está o rosto</span>
 <span class="k">python3 $K/scripts/broll-plano.py --fala aula.mp4 --transcricao $P/transcricao/transcript.json --projeto $P --rosto 0.58,0.45,0.38</span>
 <span class="c"># depois de editar o plano.json</span>
@@ -303,12 +303,12 @@ pop($('.onda', c1), t, ini('voz'));                 <span class="c">// entra no 
 <section id="exemplos"><div class="wrap">
   <span class="chip">Exemplos</span>
   <h2>Três vídeos feitos com o próprio kit</h2>
-  <p class="sub">Código, roteiro e áudio de cada um estêo em <a href="https://github.com/inematds/video-codigo/tree/main/exemplos" target="_blank" rel="noopener"><code>exemplos/</code></a>. Nenhum quadro foi filmado. O primeiro sucesso mais rápido, sem voz nem GPU: renderize o exemplo de lançamento.</p>
+  <p class="sub">Código, roteiro e áudio de cada um estêo em <a href="https://github.com/linnoff88-dev/video-codigo/tree/main/exemplos" target="_blank" rel="noopener"><code>exemplos/</code></a>. Nenhum quadro foi filmado. O primeiro sucesso mais rápido, sem voz nem GPU: renderize o exemplo de lançamento.</p>
 <pre><span class="k">cd $K/exemplos/lancamento && node ../../scripts/render-video.mjs --project . --output teste.mp4 --audio audio/lancamento/mezcla.wav --overwrite</span></pre>
   <div class="ex">
     <figure style="grid-column:1/-1"><video controls preload="none" playsinline poster="assets/atende-16x9.jpg" src="../renders/atende-16x9.mp4" style="width:100%;display:block"></video><figcaption><b>Filme de produto do atende-leads</b> (63 s) — recria as telas reais: leads esperando no WhatsApp, o agente que qualifica, o chamado no Telegram que passa da Ana ao Bruno em 2 min, o painel da equipe, a sugestêo de resposta e a venda. Cursor clicando, voz do Nei presa a cada palavra. Caso de exemplo. <a href="../renders/atende-9x16.mp4">versêo 9:16</a> · <a href="https://www.youtube.com/watch?v=tWv1mEIK62c" target="_blank" rel="noopener">YouTube</a></figcaption></figure>
     <figure><video controls preload="none" playsinline poster="assets/explicativo-16x9.jpg" src="../renders/explicativo-16x9.mp4" style="width:100%;display:block"></video><figcaption><b>Explicativo narrado</b> (44 s) — voz local do Nei; código digitando, marcas de tempo de cada palavra e o quadro 16:9 virando 9:16 na palavra certa. <a href="../renders/explicativo-9x16.mp4">versêo 9:16</a> · <a href="https://www.youtube.com/watch?v=tkT2I6nrMAk" target="_blank" rel="noopener">YouTube</a></figcaption></figure>
-    <figure><video controls preload="none" playsinline poster="assets/lancamento-16x9.jpg" src="../renders/lancamento-16x9.mp4" style="width:100%;display:block"></video><figcaption><b>Lançamento só com música</b> (21 s) — um plano só: a mesma forma vira curso, guia, vídeo, kit, comunidade e o ponto do INEMA.CLUB. <a href="../renders/lancamento-9x16.mp4">versêo 9:16</a> · <a href="https://www.youtube.com/watch?v=IJ-qZQ1drBc" target="_blank" rel="noopener">YouTube</a></figcaption></figure>
+    <figure><video controls preload="none" playsinline poster="assets/lancamento-16x9.jpg" src="../renders/lancamento-16x9.mp4" style="width:100%;display:block"></video><figcaption><b>Lançamento só com música</b> (21 s) — um plano só: a mesma forma vira curso, guia, vídeo, kit, comunidade e o ponto do ARCKHÉ AI. <a href="../renders/lancamento-9x16.mp4">versêo 9:16</a> · <a href="https://www.youtube.com/watch?v=IJ-qZQ1drBc" target="_blank" rel="noopener">YouTube</a></figcaption></figure>
   </div>
 </div></section>
 
@@ -316,7 +316,7 @@ pop($('.onda', c1), t, ini('voz'));                 <span class="c">// entra no 
   <span class="chip">Próximos passos</span>
   <h2>O que já existe e o que vem</h2>
   <p class="sub">Feito = está no repositório e foi usado nos exemplos.</p>
-  <div class="phase"><div class="tag">Feito</div><div class="d"><strong>Skill, voz local e tema INEMA</strong><span>SKILL.md e referências em português, voz.py com Chatterbox + Whisper, tema com fontes locais, dois exemplos em 16:9 e 9:16.</span></div></div>
+  <div class="phase"><div class="tag">Feito</div><div class="d"><strong>Skill, voz local e tema ARCKHÉ</strong><span>SKILL.md e referências em português, voz.py com Chatterbox + Whisper, tema com fontes locais, dois exemplos em 16:9 e 9:16.</span></div></div>
   <div class="phase"><div class="tag">Feito</div><div class="d"><strong>Qualidade conferida sozinha (1.2)</strong><span>Verificador de tempo de leitura, voz checada pelo Whisper (com números), música presa aos cortes e modo b-roll para vídeo de pessoa falando.</span></div></div>
   <div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Exemplo pronto de anúncio com vários ganchos</strong><span>A skill já sabe fazer; falta um exemplo renderizado com o mesmo corpo e cinco aberturas diferentes.</span></div></div>
   <div class="phase"><div class="tag">Depois</div><div class="d"><strong>Exemplo pronto de série de produtos</strong><span>Um vídeo por produto com o mesmo visual, a partir de uma lista.</span></div></div>
@@ -326,8 +326,8 @@ pop($('.onda', c1), t, ini('voz'));                 <span class="c">// entra no 
   <div class="wrap">
     <div class="pill">HTML · Canvas · SVG</div><div class="pill">Playwright + FFmpeg</div><div class="pill">Chatterbox + Whisper</div>
     <p style="margin-top:18px">video-codigo · vídeos feitos com código ·
-      <a href="https://github.com/inematds/video-codigo">inematds/video-codigo</a> ·
-      <a href="https://inema.club">INEMA.CLUB</a></p>
+      <a href="https://github.com/linnoff88-dev/video-codigo">linnoff88-dev/video-codigo</a> ·
+      <a href="https://ARCKHÉ AI">ARCKHÉ AI</a></p>
   </div>
 </footer>
 

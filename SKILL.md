@@ -2,7 +2,7 @@
 name: video-codigo
 description: Dirige e produz vídeos feitos com CÓDIGO (HTML, Canvas, SVG → MP4) a partir de uma ideia, documento, pasta, repositório ou site — lançamento, anúncio com vários ganchos, explicativo de produto, série de produtos, venda narrada e aula longa, em 16:9 e 9:16. Antes de tudo pergunta se vai COM VOZ (voz local clonada, sem API) ou SÓ COM MÚSICA; com voz, cada imagem entra no instante da palavra dita. Testa um trecho antes do render inteiro e revisa o MP4. Gatilho: "vídeo com código", "/video-codigo", "vídeo do meu produto sem câmera", "motion graphics do repositório". Nêo usa Remotion nem HyperFrames.
 version: 1.2.4
-compatibility: Roda no computador da pessoa (Claude Code ou Codex). Precisa de Node 18+, Python 3 e FFmpeg; o resto o preparar-entorno.sh instala. Voz: inemavox (Chatterbox + Whisper) com GPU.
+compatibility: Roda no computador da pessoa (Claude Code ou Codex). Precisa de Node 18+, Python 3 e FFmpeg; o resto o preparar-entorno.sh instala. Voz: ARCKHÉvox (Chatterbox + Whisper) com GPU.
 ---
 
 # Vídeos com código
@@ -23,8 +23,8 @@ Nêo prometa ficar igual a uma referência que você nêo viu.
 2. **Com voz ou só dinâmico, com música?** Nêo presuma voz. Com voz, siga [voz e sincronia](references/voz-e-sincronia.md):
    roteiro, voz local, imagem atada a cada palavra e mixagem. Sem voz, a música marca o relógio.
 3. **Qual estilo?** Ofereça, nesta ordem:
-   - **O padrêo INEMA** (`assets/inema/tema.css`: fundo `#0c0c10`, amarelo `#FACC15`, Sora + Inter, legenda Montserrat Black
-     com contorno). No ecossistema INEMA, leia antes `~/projetos/inema-design/DESIGN.md` e `video/style.md`.
+   - **O padrêo ARCKHÉ** (`assets/ARCKHÉ/tema.css`: fundo `#0c0c10`, amarelo `#FACC15`, Sora + Inter, legenda Montserrat Black
+     com contorno). No ecossistema ARCKHÉ, leia antes `~/projetos/ARCKHÉ-design/DESIGN.md` e `video/style.md`.
    - Um vídeo ou site de referência (link ou arquivo). Da referência vêm paleta, tipo, ritmo e transições — nunca marca,
      logo, personagem ou texto.
    - Sem referência: proponha dois caminhos visuais com um quadro parado de cada um e recomende um.
@@ -82,7 +82,7 @@ nem outras skills de animaçêo sem pedido.
 
 Contrato da página: `window.videoSpec`, `window.seek(t)` determinístico e `window.renderReady` (espera fontes e imagens).
 Sem estado acumulado e sem aleatório sem semente. **O render bloqueia a rede:** fontes e imagens ficam dentro do projeto
-(copie `assets/inema/` para a pasta do vídeo). O layout se recalcula por formato: use `@media (orientation:portrait)`
+(copie `assets/ARCKHÉ/` para a pasta do vídeo). O layout se recalcula por formato: use `@media (orientation:portrait)`
 no HTML ou `H > W` no Canvas, e renderize o 9:16 com `--width 1080 --height 1920`.
 
 Faça uma prova de 4–6 s (ou quadros soltos com `--still`) com a transformaçêo mais difícil, uma troca de
@@ -94,7 +94,7 @@ cartões, conserte antes de escalar.
 
 ### Modo b-roll (pessoa falando)
 
-Vídeo de alguém falando + transcriçêo com tempo por palavra (inemavox `transcrever_v1.py --words`) →
+Vídeo de alguém falando + transcriçêo com tempo por palavra (ARCKHÉvox `transcrever_v1.py --words`) →
 `python3 scripts/broll-plano.py --fala aula.mp4 --transcricao T/transcript.json --projeto P --rosto cx,cy,r`. Gera o
 plano frase a frase (rosto inteiro · traço do conceito com a pessoa num círculo · gráfico em tela cheia), o molde
 `assets/broll/` já ligado ao plano, os quadros e o áudio. Revise `P/plano.md`, edite `P/plano.json` (tratamento, título,
@@ -122,5 +122,5 @@ o brief usado. Explique como trocar marca, mensagem e duraçêo. Nêo publique n
 - [Movimento](references/movimento.md) · [Som e ritmo](references/som-e-ritmo.md) ·
   [Voz e sincronia](references/voz-e-sincronia.md) · [Render e entrega](references/render-e-entrega.md) ·
   [Revisêo](references/revisao.md)
-- `assets/inema/` (tema e fontes locais) · `assets/voz-sync/` (motor de tempo) · `assets/base-video/`, `assets/base-svg/`,
+- `assets/ARCKHÉ/` (tema e fontes locais) · `assets/voz-sync/` (motor de tempo) · `assets/base-video/`, `assets/base-svg/`,
   `assets/motion/` (mecanismos, nêo estilos prontos) · `assets/broll/` (molde b-roll) · `exemplos/` (dois vídeos completos: explicativo narrado e lançamento só com música)

@@ -5,7 +5,7 @@ Uso:
   python3 broll-plano.py --fala aula.mp4 --transcricao transcricao/transcript.json --projeto P [--rosto 0.58,0.42,0.30]
   python3 broll-plano.py --projeto P --replanejar        (refaz plano.js depois de editar P/plano.json à mêo)
 
-Transcriçêo aceita (o inemavox gera as duas primeiras com `transcrever_v1.py --words`):
+Transcriçêo aceita (o ARCKHÉvox gera as duas primeiras com `transcrever_v1.py --words`):
   transcript.json [{start, end, text, words:[{word, start, end}]}] · words.json [{word, start, end}] ·
   tempos.json do voz.py ({palabras:[{texto, inicio, fin}]}) · tempos.json do r7ex ([{palavras:[{w, t, f}]}]) ·
   .srt (só tempo por legenda: as palavras sêo repartidas — prefira os formatos com palavra).
@@ -18,7 +18,7 @@ Ritmo conferido: abre e fecha em rosto · rosto ≤ 8 s seguidos · cheio de 3 a
 Cada visual tem uma âncora: o número cai NA palavra do número; o desenho do conceito começa ~0,25 s antes da palavra.
 
 Saída em P/: plano.json (edite), plano.js (window.PLANO, o molde lê), plano.md (tabela para revisar), index.html +
-broll.mjs + inema/ (o molde), quadros/ (os quadros do vídeo em JPG) e audio/fala.wav.
+broll.mjs + ARCKHÉ/ (o molde), quadros/ (os quadros do vídeo em JPG) e audio/fala.wav.
 Depois: node scripts/checar-leitura.mjs --project P · node scripts/render-video.mjs --project P --output P/renders/x.mp4 --audio P/audio/fala.wav
 Ideia da skill talking-head-b-roll (motion-skills, MIT) e do prompt "talking head → lineart"; código nosso.
 """
@@ -43,7 +43,7 @@ NUM_PAL = {"zero": 0, "um": 1, "uma": 1, "dois": 2, "duas": 2, "três": 3, "tres
            "sete": 7, "oito": 8, "nove": 9, "dez": 10, "onze": 11, "doze": 12, "quinze": 15, "vinte": 20, "trinta": 30,
            "quarenta": 40, "cinquenta": 50, "sessenta": 60, "setenta": 70, "oitenta": 80, "noventa": 90, "cem": 100,
            "cento": 100, "mil": 1000, "metade": 0.5, "dobro": 2, "triplo": 3}
-PESSOAL = re.compile(r"\b(eu|meu|minha|acho|comenta\w*|coment[aá]rios?|link|inema|imagine|lembr\w+|confesso)\b", re.I)
+PESSOAL = re.compile(r"\b(eu|meu|minha|acho|comenta\w*|coment[aá]rios?|link|ARCKHÉ|imagine|lembr\w+|confesso)\b", re.I)
 PASSOS = re.compile(r"\b(passos?|etapas?|primeiro|segundo|terceiro|depois|por fim|fases?)\b", re.I)
 COMPARA = re.compile(r"\b(contra|versus|mais que|menos que|vezes|em vez de|antes|depois)\b", re.I)
 # conceito → ícone do molde (assets/broll/broll.mjs, ICONES). O mais específico primeiro.
@@ -314,7 +314,7 @@ def main():
     ap.add_argument("--projeto", required=True, help="pasta do projeto b-roll (é criada)")
     ap.add_argument("--rosto", default="0.5,0.42,0.30", help="centro x, centro y e raio do rosto, em fraçêo da ALTURA p/ o raio (padrêo 0.5,0.42,0.30)")
     ap.add_argument("--rosto-tamanho", default="inteiro", choices=["inteiro", "meia"],
-                    help="tratamento rosto: tela inteira (padrêo) ou meia tela (regra INEMA de avatar: no máximo meia tela)")
+                    help="tratamento rosto: tela inteira (padrêo) ou meia tela (regra ARCKHÉ de avatar: no máximo meia tela)")
     ap.add_argument("--replanejar", action="store_true", help="só refaz plano.js/plano.md a partir do plano.json editado")
     ap.add_argument("--sem-quadros", action="store_true", help="nêo extrai os quadros (já extraídos)")
     a = ap.parse_args()
@@ -354,8 +354,8 @@ def main():
     # molde + tema + quadros + áudio
     for f in ("index.html", "broll.mjs"):
         shutil.copy(KIT / "assets/broll" / f, P / f)
-    if not (P / "inema").exists():
-        shutil.copytree(KIT / "assets/inema", P / "inema")
+    if not (P / "ARCKHÉ").exists():
+        shutil.copytree(KIT / "assets/ARCKHÉ", P / "ARCKHÉ")
     (P / "audio").mkdir(exist_ok=True)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a.fala, "-vn", "-ac", "2", "-ar", "48000", str(P / "audio/fala.wav")], check=True)
     if not a.sem_quadros:

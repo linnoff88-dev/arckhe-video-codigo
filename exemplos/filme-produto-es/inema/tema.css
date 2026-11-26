@@ -1,5 +1,5 @@
-/* Tema INEMA para vídeos com código — cores e fontes do DESIGN.md (fundo #0c0c10, amarelo #FACC15, Sora + Inter).
-   Copie a pasta assets/inema/ para dentro do projeto do vídeo: o render bloqueia rede, as fontes precisam ser locais. */
+/* Tema ARCKHÉ para vídeos com código — cores e fontes do DESIGN.md (fundo #0c0c10, amarelo #FACC15, Sora + Inter).
+   Copie a pasta assets/ARCKHÉ/ para dentro do projeto do vídeo: o render bloqueia rede, as fontes precisam ser locais. */
 @font-face{font-family:Sora;font-weight:100 900;src:url(fonts/Sora.ttf) format('truetype')}
 @font-face{font-family:Inter;font-weight:400 500;src:url(fonts/Inter-Regular.ttf) format('truetype')}
 @font-face{font-family:Inter;font-weight:600 900;src:url(fonts/Inter-Bold.ttf) format('truetype')}
@@ -15,7 +15,7 @@
 }
 html,body{margin:0;background:var(--bg);color:var(--txt);font-family:var(--texto);overflow:hidden}
 
-/* Legenda INEMA: até 3 palavras, Montserrat Black, contorno preto, palavra dita em amarelo. */
+/* Legenda ARCKHÉ: até 3 palavras, Montserrat Black, contorno preto, palavra dita em amarelo. */
 #subs{position:absolute;left:0;right:0;bottom:64px;display:flex;justify-content:center;pointer-events:none;z-index:50}
 #subs .line{display:flex;gap:.28em;font-family:Montserrat,sans-serif;font-weight:900;text-transform:uppercase;
   font-size:64px;line-height:1.05;letter-spacing:-.01em;-webkit-text-stroke:8px #000;paint-order:stroke fill}

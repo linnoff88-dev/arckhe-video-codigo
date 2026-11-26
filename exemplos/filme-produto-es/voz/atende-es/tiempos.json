@@ -125,7 +125,7 @@
   {
    "id": "cta",
    "bloque": "fecho",
-   "texto": "Es de código abierto y funciona en tu VPS. Está todo en INEMA.CLUB.",
+   "texto": "Es de código abierto y funciona en tu VPS. Está todo en ARCKHÉ AI.",
    "inicio": 53.938,
    "fin": 58.278
   }
@@ -1020,7 +1020,7 @@
    "frase": "cta"
   },
   {
-   "texto": "INEMA.CLUB.",
+   "texto": "ARCKHÉ AI.",
    "inicio": 57.61,
    "fin": 58.278,
    "frase": "cta"
