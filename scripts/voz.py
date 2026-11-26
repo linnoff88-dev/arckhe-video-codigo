@@ -12,11 +12,11 @@ roteiro.json (as chaves em espanhol do formato antigo também valem: bloques, hu
    "blocos": [{"id": "abertura", "frases": [{"id": "hook", "texto": "..."}]}]}
 
 Como funciona:
-  1. Cada frase vira uma fala no Chatterbox (inemavox, GPU) com a voz clonada (padrão: nei).
+  1. Cada frase vira uma fala no Chatterbox (inemavox, GPU) com a voz clonada (padrêo: nei).
   2. O Whisper large-v3 local ouve cada frase, mede a semelhança com o texto e dá o tempo de cada palavra.
-     Frase abaixo de VC_SIM_MIN (0,80), ou com um número ouvido errado, é gerada de novo (--tentativas, padrão 3 no total).
+     Frase abaixo de VC_SIM_MIN (0,80), ou com um número ouvido errado, é gerada de novo (--tentativas, padrêo 3 no total).
      Cada rodada fica registrada em DIR/voz/<id>/checagem.md (semelhança, tentativas e o que o Whisper OUVIU) —
-     leia o "ouvido" das frases marcadas: semelhança alta não garante pronúncia boa de sigla.
+     leia o "ouvido" das frases marcadas: semelhança alta nêo garante pronúncia boa de sigla.
      Para conferir de novo uma voz já gerada, ou um wav qualquer contra um texto: scripts/checar-fala.py.
   3. Junta tudo com `pausa` entre frases e `intervalo_blocos` entre blocos.
 Saída em DIR/voz/<id>/: voz.wav (mono, 48 kHz), tiempos.json e tiempos.js (window.TIEMPOS) com bloques, frases e
@@ -57,7 +57,7 @@ SR = 48000
 DICIONARIO = [
     (r"\bINEMA\.CLUB\b", "Inema Club"), (r"\bLLM\b", "éle éle ême"), (r"\bIA\b", "i a"), (r"\bAPI\b", "a pê i"), (r"\bMP4\b", "ême pê quatro"),
     (r"\bHTML\b", "agá tê ême éle"), (r"\bSVG\b", "ésse vê gê"), (r"\bCRM\b", "cê érre ême"),
-    (r"\bClaude Code\b", "Clód Côud"), (r"\bClaude\b", "Clód"), (r"\bGitHub\b", "guit rãb"),
+    (r"\bClaude Code\b", "Clód Côud"), (r"\bClaude\b", "Clód"), (r"\bGitHub\b", "guit rêb"),
     (r"\b(16|9|4|3|1|5|21)\s*[:x×]\s*(9|16|3|4|1|5)\b", r"\1 por \2"),   # formato de tela: o TTS lia "16:9" como "16 maio a 9"
     (r"/([a-z][\w-]*)", lambda m: "barra " + m.group(1).replace("-", " ")),
 ]
@@ -132,7 +132,7 @@ def registrar(saida, textos, hist, melhor):
         sims = " → ".join(f"{h['sim']:.2f}" + ("" if h["num_ok"] else " nº✗") for h in hist[k])
         linhas.append(f"| {k} | {'✅' if boa(r) else '⚠'} | {sims} | {r['heard'].replace('|', '/')} |")
     fm = saida / "checagem.md"
-    topo = "" if fm.exists() else "# Checagem da fala (Whisper) — gerado pelo voz.py\n\nCada geração é ouvida pelo Whisper e comparada com o texto. Leia a coluna do ouvido nas frases ⚠.\n"
+    topo = "" if fm.exists() else "# Checagem da fala (Whisper) — gerado pelo voz.py\n\nCada geraçêo é ouvida pelo Whisper e comparada com o texto. Leia a coluna do ouvido nas frases ⚠.\n"
     with open(fm, "a") as f:
         f.write(topo + "\n".join(linhas) + "\n")
     print(f"  checagem → {fm}")
@@ -145,7 +145,7 @@ def main():
     ap.add_argument("--frase", help="com --refazer: gera de novo só esta frase")
     ap.add_argument("--refazer", "--rehacer", dest="refazer", action="store_true")
     ap.add_argument("--simular", action="store_true")
-    ap.add_argument("--tentativas", type=int, default=TENTATIVAS, help="gerações por frase no máximo (padrão 3)")
+    ap.add_argument("--tentativas", type=int, default=TENTATIVAS, help="gerações por frase no máximo (padrêo 3)")
     a = ap.parse_args()
 
     projeto = pathlib.Path(a.projeto).resolve()
@@ -158,7 +158,7 @@ def main():
     ref = caminho_voz(voz)
     for need in (CB_PY, VOX_PY, ref):
         if not os.path.exists(need):
-            sys.exit(f"Falta: {need}" + (" — defina VC_VOZ=/caminho/sua-voz.wav" if str(need) == str(ref) else " (ver README › Instalação)"))
+            sys.exit(f"Falta: {need}" + (" — defina VC_VOZ=/caminho/sua-voz.wav" if str(need) == str(ref) else " (ver README › Instalaçêo)"))
 
     saida = projeto / "voz" / rot["id"]
     cache = saida / "cache"
@@ -228,7 +228,7 @@ def main():
             if j:
                 lista.append(silencio(pausa)); t += pausa
             d = json.loads(arq(f).read_text())
-            # corta a frase entre a 1ª e a última palavra ouvida: o Chatterbox às vezes deixa respiração ou
+            # corta a frase entre a 1ª e a última palavra ouvida: o Chatterbox às vezes deixa respiraçêo ou
             # ruído de 1–3 s no fim, que viraria buraco entre as frases
             a0 = max(0.0, d["words"][0][1] - 0.06)
             a1 = min(d["dur"], d["words"][-1][2] + 0.18)

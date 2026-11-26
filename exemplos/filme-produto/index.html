@@ -185,18 +185,18 @@ h1,h2{font-family:var(--titulos);font-weight:800;letter-spacing:-.02em;margin:0;
   </div>
 </div>
 
-<!-- 4 · equipe e sugestão -->
+<!-- 4 · equipe e sugestêo -->
 <div id="c4" class="cena">
   <div class="tg grupo">
     <div class="tg-top"><div class="av" style="background:#3b82f6">E</div><div><b>Equipe · Escola de Idiomas</b><small>mensagem fixada</small></div></div>
     <div class="tg-body"><div class="bolha painel"><b>EQUIPE AGORA · 10:05</b>
-<span class="ln" id="p1"><span class="emo">🟡</span> Bruno atendendo Maria · 1 min</span><span class="ln" id="p2"><span class="emo">🟢</span> Ana livre há 20 min (próxima da vez)</span><span class="ln" id="p3"><span class="emo">🟡</span> Carla atendendo Lucas · 4 min</span><span class="ln" id="p4"><span class="emo">⚪</span> Davi fora</span><span class="ln" id="p5" style="margin-top:12px"><b>FILA</b></span><span class="ln" id="p6"><span class="emo">🙋</span> João · esperando 1 min</span></div></div>
+<span class="ln" id="p1"><span class="emo">🟡</span> Bruno atendendo Maria · 1 min</span><span class="ln" id="p2"><span class="emo">🟢</span> Ana livre há 20 min (próxima da vez)</span><span class="ln" id="p3"><span class="emo">🟡</span> Carla atendendo Lucas · 4 min</span><span class="ln" id="p4"><span class="emo">⚪</span> Davi fora</span><span class="ln" id="p5" style="margin-top:12px"><b>FILA</b></span><span class="ln" id="p6"><span class="emo">🙋</span> Joêo · esperando 1 min</span></div></div>
   </div>
   <div class="tg priv">
     <div class="tg-top"><div class="av" style="background:#2980b9">B</div><div><b>Atendimento Bot</b><small>privado do Bruno · atendendo #1</small></div></div>
     <div class="tg-body">
       <div class="bolha" id="s-msg"><span class="k">Maria:</span> Vocês têm aula no sábado?</div>
-      <div class="sug" id="s-sug"><span class="emo">💡</span> <b>Sugestão:</b> Temos sim! Turmas aos sábados, às 9h e às 11h.</div>
+      <div class="sug" id="s-sug"><span class="emo">💡</span> <b>Sugestêo:</b> Temos sim! Turmas aos sábados, às 9h e às 11h.</div>
       <div class="bts"><div class="bt amb" id="s-enviar"><span class="emo">✅</span> Enviar</div><div class="bt"><span class="emo">✏️</span> Editar</div></div>
       <div class="bolha" id="s-ok" style="margin-top:12px;background:#2b5278">Enviado para Maria pelo WhatsApp <span class="emo">✓</span></div>
     </div>
@@ -264,7 +264,7 @@ function cursorEm(t, alvos) {   // alvos: [{el, t}] em ordem; o cursor anda do a
 }
 
 // ── 1: lista de conversas esperando (os minutos sobem com o tempo) ──
-const nomes = [['M', 'Maria Souza', 'Oi, quanto custa o curso de inglês?', 3], ['L', 'Lucas', 'Vocês abrem sábado?', 6], ['J', 'João Pedro', 'Tem turma à noite?', 9], ['R', 'Rita', 'Quero saber do plano anual', 14], ['P', 'Pedro', 'Alguém aí?', 22], ['C', 'Camila', 'Oi?', 31]];
+const nomes = [['M', 'Maria Souza', 'Oi, quanto custa o curso de inglês?', 3], ['L', 'Lucas', 'Vocês abrem sábado?', 6], ['J', 'Joêo Pedro', 'Tem turma à noite?', 9], ['R', 'Rita', 'Quero saber do plano anual', 14], ['P', 'Pedro', 'Alguém aí?', 22], ['C', 'Camila', 'Oi?', 31]];
 const lista = $('#lista');
 const itens = nomes.map(([a, n, m, min]) => {
   const d = document.createElement('div'); d.className = 'it';
@@ -272,7 +272,7 @@ const itens = nomes.map(([a, n, m, min]) => {
   lista.appendChild(d); return {d, min, mm: $('.mm', d), esp: $('.esp', d)};
 });
 
-// ── 2: mensagens e qualificação ──
+// ── 2: mensagens e qualificaçêo ──
 const msgs = [...document.querySelectorAll('#conv .msg')].map(el => {
   const f = el.dataset.f, w = el.dataset.w;
   return {el, t: (w === '0' ? ini(f) : pal(f, w)) + (+el.dataset.d || 0) - .15};
@@ -327,8 +327,8 @@ const film = new Film()
     [['#p1', 'livre'], ['#p2', 'livre'], ['#p3', 'atendendo'], ['#p4', 'atendendo'], ['#p5', 'fila'], ['#p6', 'fila']].forEach(([s, w], i) => pop($(s), t, pal('painel', w) + (i % 2) * .25 - .2, {x: -24, y: 0}));
     pop($('#c4 .priv'), t, ini('sugestao') - .3, {y: 40});
     pop($('#s-msg'), t, pal('sugestao', 'mensagem'), {y: 16});
-    pop($('#s-sug'), t, pal('sugestao', 'sugestão'), {y: 16, s0: .95});
-    pop($('#s-enviar').parentNode, t, pal('sugestao', 'sugestão') + .3, {y: 10});
+    pop($('#s-sug'), t, pal('sugestao', 'sugestêo'), {y: 16, s0: .95});
+    pop($('#s-enviar').parentNode, t, pal('sugestao', 'sugestêo') + .3, {y: 10});
     const tEnv = pal('sugestao', 'enviar');
     cursorEm(t, [{el: $('#s-enviar'), t: tEnv}]); tap($('#s-enviar'), t, tEnv);
     pop($('#s-ok'), t, tEnv + .35, {y: 10});

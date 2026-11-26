@@ -29,7 +29,7 @@
   {
    "id": "hook",
    "bloque": "abertura",
-   "texto": "Este vídeo não tem câmera.",
+   "texto": "Este vídeo nêo tem câmera.",
    "inicio": 0.0,
    "fin": 1.44
   },
@@ -125,7 +125,7 @@
    "frase": "hook"
   },
   {
-   "texto": "não",
+   "texto": "nêo",
    "inicio": 0.54,
    "fin": 0.8,
    "frase": "hook"

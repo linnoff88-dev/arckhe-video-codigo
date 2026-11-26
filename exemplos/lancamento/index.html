@@ -43,7 +43,7 @@ function conteudo(t, b, i, a) {
       g.fillStyle = LINE; rr(b.x + 50, y + 24, b.w - 100, 14, 7); g.fill();
       g.fillStyle = AMB; rr(b.x + 50, y + 24, (b.w - 100) * track(t, [[0, 0], [s + .35 + k * .45, 1]], firme), 14, 7); g.fill();
     });
-  } else if (i === 1) { // guia: página com título, linhas e botão
+  } else if (i === 1) { // guia: página com título, linhas e botêo
     g.fillStyle = AMB; rr(b.x + 40, b.y + 46, 150, 14, 7); g.fill();
     font(40); g.fillStyle = '#fff'; g.textAlign = 'left'; g.fillText('Como usar', b.x + 40, b.y + 120);
     for (let k = 0; k < 6; k++) { const p = clamp((t - s - .3 - k * .12) / .3); g.fillStyle = LINE; rr(b.x + 40, b.y + 160 + k * 44, (b.w - 80) * (k % 3 === 2 ? .6 : .92) * p, 14, 7); g.fill(); }

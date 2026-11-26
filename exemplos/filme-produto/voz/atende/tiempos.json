@@ -104,7 +104,7 @@
   {
    "id": "sugestao",
    "bloque": "equipe",
-   "texto": "A cada mensagem do lead chega uma sugestão de resposta. É só tocar em enviar.",
+   "texto": "A cada mensagem do lead chega uma sugestêo de resposta. É só tocar em enviar.",
    "inicio": 42.382,
    "fin": 47.302
   },
@@ -810,7 +810,7 @@
    "frase": "sugestao"
   },
   {
-   "texto": "sugestão",
+   "texto": "sugestêo",
    "inicio": 44.142,
    "fin": 44.762,
    "frase": "sugestao"

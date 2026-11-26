@@ -56,7 +56,7 @@ svg.ic{stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;strok
 #c4 .marca p{font-size:36px;color:var(--mut);margin:22px 0 0;font-weight:500}
 #c4 .marca p b{color:#fff;font-family:var(--mono)}
 
-/* ── 9:16: o mesmo projeto, outra composição ── */
+/* ── 9:16: o mesmo projeto, outra composiçêo ── */
 @media (orientation:portrait){
   #c1 h1{left:80px;top:170px;width:920px;font-size:124px}
   #c1 .cam{left:770px;top:520px;width:220px;height:220px}
@@ -181,7 +181,7 @@ const film = new Film()
       if (i < 3) { const s = $('#s' + (i + 1), c3), p = easeIO(t, m, Math.max(.3, marcos[i + 1] - m - .1));
         if (vertical()) { s.style.height = p * 100 + '%'; s.style.width = '100%'; } else { s.style.width = p * 100 + '%'; s.style.height = ''; } }
     });
-    // trilho: as marcas são os tempos reais de cada palavra dita
+    // trilho: as marcas sêo os tempos reais de cada palavra dita
     const W = lin.clientWidth, x = w => (w - t0s) / (t1s - t0s) * W;
     const sai = 1 - ease(t, ini('formatos') - .2, .4);
     lin.style.opacity = win(t, ini('sincronia') - .3, ini('formatos') - .1, .35, .35);

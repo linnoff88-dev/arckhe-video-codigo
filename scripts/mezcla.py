@@ -12,7 +12,7 @@ Efectos: DIR/audio/<id>/eventos.json, una lista de {"t": …, "tipo": "whoosh|po
 Músicas: energica (120 BPM, La menor) · tranquila (84 BPM, Do mayor) · ninguna. --pista FICHERO usa una pista propia.
 Salida: DIR/audio/<id>/mezcla.wav (estéreo, 48 kHz, normalizada a --lufs).
 
-Trilha presa aos cortes (1.2): os cortes da composição vêm de DIR/audio/<id>/cortes.json (o checar-leitura.mjs
+Trilha presa aos cortes (1.2): os cortes da composiçêo vêm de DIR/audio/<id>/cortes.json (o checar-leitura.mjs
 --salvar-cortes grava; lista de segundos ou «frase@palavra») ou, sem ele, do início de cada bloco da voz. A música
 sintetizada põe um número inteiro de tempos entre dois cortes: todo corte cai num tempo forte e na tônica (o compasso
 antes vai à dominante). --sem-cortes volta à grade fixa. No fim confere e grava DIR/audio/<id>/trilha.json:
@@ -143,12 +143,12 @@ EFECTOS = {"whoosh": whoosh, "pop": pop_, "click": click, "ding": ding, "impacto
 
 
 def grade(dur, beat, cortes):
-    """Mapa de tempo: entre dois cortes cabe um número inteiro de tempos (o andamento flexiona um pouco), então todo
+    """Mapa de tempo: entre dois cortes cabe um número inteiro de tempos (o andamento flexiona um pouco), entêo todo
     corte cai num tempo forte (início de compasso). Devolve [(t, dur_tempo, pos_no_compasso, compasso_global,
     compasso_na_secao, compassos_na_secao)]. Ideia da skill soundtrack (motion-skills, MIT); código nosso."""
     limites = [0.0]
     for c in sorted(cortes or []):
-        if 2 * beat <= c - limites[-1] and c <= dur - 2 * beat:   # corte colado no anterior ou no fim não ganha seção
+        if 2 * beat <= c - limites[-1] and c <= dur - 2 * beat:   # corte colado no anterior ou no fim nêo ganha seçêo
             limites.append(c)
     limites.append(dur)
     out, gbar = [], 0
@@ -166,8 +166,8 @@ def grade(dur, beat, cortes):
 
 
 def musica(estilo, dur, cortes=None):
-    """Música sintetizada. Com cortes: cada seção começa na tônica e o compasso antes do corte vai à dominante —
-    o corte se marca pela HARMONIA, não por volume (nada de acento extra no corte)."""
+    """Música sintetizada. Com cortes: cada seçêo começa na tônica e o compasso antes do corte vai à dominante —
+    o corte se marca pela HARMONIA, nêo por volume (nada de acento extra no corte)."""
     buf = np.zeros(int(dur * SR))
     if estilo == "ninguna": return buf, []
     if estilo == "energica":
@@ -177,7 +177,7 @@ def musica(estilo, dur, cortes=None):
         raiz = [p[0] - 24 for p in prog]
     tempos, usados = grade(dur, beat, cortes)
     for i, (t, bt, pos, bar, kbar, nbar) in enumerate(tempos):
-        ultima = t >= (usados[-1] if usados else dur)   # a última seção termina no fim do vídeo, não num corte
+        ultima = t >= (usados[-1] if usados else dur)   # a última seçêo termina no fim do vídeo, nêo num corte
         h = 3 if (nbar > 1 and kbar == nbar - 1 and usados and not ultima) else kbar % 4   # compasso antes do corte → dominante
         acorde, r = prog[h], raiz[h]
         resto = sum(x[1] for x in tempos[i:i + 4 - pos])   # até o fim do compasso
@@ -251,7 +251,7 @@ def envolvente(voz, ataque=.04, suelta=.45, umbral_db=-38, respiro=1.5):
     rms = np.sqrt(np.mean(voz[:n * paso].reshape(n, paso) ** 2, axis=1) + 1e-12)
     ref = np.percentile(rms[rms > 1e-6], 95)
     activo = (20 * np.log10(rms / ref) > umbral_db).astype(float)
-    # pausa curta (< respiro s) entre falas conta como fala: a música não "respira" a cada frase — esse sobe-desce
+    # pausa curta (< respiro s) entre falas conta como fala: a música nêo "respira" a cada frase — esse sobe-desce
     # de 8–10 dB no corte de cena soava como susto (medido no exemplo explicativo, 07/11/2026)
     on = np.where(activo > 0)[0]
     for i, j in zip(on[:-1], on[1:]):
@@ -285,11 +285,11 @@ def main():
     ap.add_argument("--bajo-voz", type=float, default=24, help="dB que queda la música bajo la voz al hablar")
     ap.add_argument("--agache", type=float, default=10, help="dB que sube la música en los huecos de la voz")
     ap.add_argument("--lufs", type=float, default=-14)
-    ap.add_argument("--cortes", help="arquivo de cortes (padrão DIR/audio/<id>/cortes.json; sem ele, os blocos da voz)")
+    ap.add_argument("--cortes", help="arquivo de cortes (padrêo DIR/audio/<id>/cortes.json; sem ele, os blocos da voz)")
     ap.add_argument("--sem-cortes", action="store_true", help="grade fixa, sem prender a música aos cortes (a conferência continua)")
     ap.add_argument("--margem-min", type=float, default=18, help="dB mínimos da música abaixo da voz ao falar")
     ap.add_argument("--avisar", action="store_true", help="conferência só avisa (sai 0)")
-    ap.add_argument("--respiro", type=float, default=1.5, help="pausa da voz (s) abaixo da qual a música não sobe")
+    ap.add_argument("--respiro", type=float, default=1.5, help="pausa da voz (s) abaixo da qual a música nêo sobe")
     a = ap.parse_args()
     P = pathlib.Path(a.proyecto).resolve()
     dvoz = P / "voz" / a.id

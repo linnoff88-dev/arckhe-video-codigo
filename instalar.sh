@@ -5,7 +5,7 @@ set -euo pipefail
 AQUI="$(cd "$(dirname "$0")" && pwd)"
 for d in "$HOME/.claude/skills" "$HOME/.agents/skills"; do
   mkdir -p "$d"
-  if [ -e "$d/video-codigo" ] && [ ! -L "$d/video-codigo" ]; then echo "  · $d/video-codigo já existe (não mexi)"; continue; fi
+  if [ -e "$d/video-codigo" ] && [ ! -L "$d/video-codigo" ]; then echo "  · $d/video-codigo já existe (nêo mexi)"; continue; fi
   ln -sfn "$AQUI" "$d/video-codigo" && echo "  ✓ skill em $d/video-codigo"
 done
 bash "$AQUI/scripts/preparar-entorno.sh"

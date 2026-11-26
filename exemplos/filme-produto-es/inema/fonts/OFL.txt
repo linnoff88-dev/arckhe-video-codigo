@@ -93,4 +93,4 @@ DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 
-Fontes deste diretório (Anton, JetBrains Mono, Montserrat) são licenciadas pela SIL Open Font License 1.1 (texto acima).
+Fontes deste diretório (Anton, JetBrains Mono, Montserrat) sêo licenciadas pela SIL Open Font License 1.1 (texto acima).

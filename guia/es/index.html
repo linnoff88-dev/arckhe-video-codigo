@@ -260,7 +260,7 @@ cd ~/projetos/inemavox && python3 -m venv venv && venv/bin/pip install faster-wh
 
   <div class="step"><div class="b">6</div><div>
     <h3>Escenas sincronizadas con la narración</h3>
-    <p>Parte del ejemplo narrado: ya incluye el tema, el motor de tiempo y el esqueleto que usa el render (<code>videoSpec</code> = tamaño y duración, <code>seek(t)</code> = dibuja el instante <code>t</code>, <code>renderReady</code> = avisa cuando se cargaron las fuentes y las imágenes). Cambia el texto de las escenas y, en cada <code>pal('frase', 'palabra')</code>, <code>ini('frase')</code> y <code>data-in</code>, los <code>id</code> y las palabras por los de tu guion. Si queda alguno del ejemplo, el render se detiene e indica cuál: <code>Não encontrei «câmera» na frase hook do roteiro</code>.</p>
+    <p>Parte del ejemplo narrado: ya incluye el tema, el motor de tiempo y el esqueleto que usa el render (<code>videoSpec</code> = tamaño y duración, <code>seek(t)</code> = dibuja el instante <code>t</code>, <code>renderReady</code> = avisa cuando se cargaron las fuentes y las imágenes). Cambia el texto de las escenas y, en cada <code>pal('frase', 'palabra')</code>, <code>ini('frase')</code> y <code>data-in</code>, los <code>id</code> y las palabras por los de tu guion. Si queda alguno del ejemplo, el render se detiene e indica cuál: <code>Nêo encontrei «câmera» na frase hook do roteiro</code>.</p>
 <pre><span class="k">cp -r $K/exemplos/explicativo-narrado/{index.html,engine.mjs,motion.mjs,declarativo.mjs,inema} $P/</span>
 <span class="k">cp $P/voz/meuapp/tiempos.js $P/</span>   <span class="c"># los tiempos de tu voz</span></pre>
 <pre><span class="c">// en el &lt;script&gt; de index.html: cada elemento aparece con la palabra pronunciada</span>

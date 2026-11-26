@@ -129,7 +129,7 @@
     <div>
       <span class="chip">Skill para Claude Code e Codex</span>
       <h1>Vídeo do seu produto, feito com <span class="amb">código</span></h1>
-      <p class="lead">Você responde três perguntas e o agente escreve cada quadro em HTML, renderiza o MP4 em 16:9 e 9:16 e, se quiser narração, prende cada imagem à palavra que a sua voz está dizendo.</p>
+      <p class="lead">Você responde três perguntas e o agente escreve cada quadro em HTML, renderiza o MP4 em 16:9 e 9:16 e, se quiser narraçêo, prende cada imagem à palavra que a sua voz está dizendo.</p>
       <div class="cta">
         <a class="btn" href="#guia">Começar o guia</a>
         <a class="btn ghost" href="https://github.com/inematds/video-codigo" target="_blank" rel="noopener">Ver no GitHub</a>
@@ -147,11 +147,11 @@
 <section id="oque"><div class="wrap">
   <span class="chip">O que é</span>
   <h2>Um diretor de vídeo dentro do seu agente</h2>
-  <p class="sub">A skill pergunta o que importa, propõe a direção, testa um trecho e só depois renderiza o vídeo inteiro.</p>
+  <p class="sub">A skill pergunta o que importa, propõe a direçêo, testa um trecho e só depois renderiza o vídeo inteiro.</p>
   <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="assets/banner-grade.jpg" alt="Os seis tipos de vídeo: lançamento, anúncio com ganchos, explicativo, série de produtos, voz local, 16:9 e 9:16" loading="lazy" style="width:100%;display:block"></figure>
   <div class="grid g3">
     <div class="card"><h3>🎬 Vários tipos de vídeo</h3><p>A skill sabe dirigir lançamento, anúncio com vários ganchos, explicativo de produto, série com o mesmo visual, venda narrada e aula longa. Já vêm dois prontos para copiar: um explicativo narrado e um lançamento só com música.</p></div>
-    <div class="card"><h3>🎙️ Voz presa à palavra</h3><p><code>scripts/voz.py</code> gera a narração com a sua voz clonada e mede o tempo de cada palavra. No HTML, <code>pal('frase', 'palavra')</code> diz quando cada coisa entra.</p></div>
+    <div class="card"><h3>🎙️ Voz presa à palavra</h3><p><code>scripts/voz.py</code> gera a narraçêo com a sua voz clonada e mede o tempo de cada palavra. No HTML, <code>pal('frase', 'palavra')</code> diz quando cada coisa entra.</p></div>
     <div class="card"><h3>📐 16:9 e 9:16 juntos</h3><p>O mesmo projeto se recompõe por formato. Um render para o YouTube, outro para Reels, Shorts e TikTok.</p></div>
   </div>
 </div></section>
@@ -167,10 +167,10 @@
     <span>cenas em HTML</span><span class="arr">→</span>
     <span>prova de 5 s</span><span class="arr">→</span>
     <span>MP4 16:9 e 9:16</span><span class="arr">→</span>
-    <span>revisão</span>
+    <span>revisêo</span>
   </div>
   <div class="grid g3" style="margin-top:26px">
-    <div class="card"><h3>1 · As perguntas</h3><p><b>Sobre o que é, e para quem?</b> (pode ser uma pasta, um repositório ou um site para ler) · <b>Com voz ou só música?</b> · <b>Qual estilo?</b> — o padrão INEMA ou um vídeo de referência.</p></div>
+    <div class="card"><h3>1 · As perguntas</h3><p><b>Sobre o que é, e para quem?</b> (pode ser uma pasta, um repositório ou um site para ler) · <b>Com voz ou só música?</b> · <b>Qual estilo?</b> — o padrêo INEMA ou um vídeo de referência.</p></div>
     <div class="card"><h3>2 · A voz</h3><p>Cada frase é falada pelo Chatterbox com a voz clonada; o Whisper ouve, confere e marca o tempo de cada palavra. Frase que saiu errada é gerada de novo.</p></div>
     <div class="card"><h3>3 · O render</h3><p>Um navegador sem janela abre a página, pede o quadro de cada instante (<code>window.seek(t)</code>) e o FFmpeg junta tudo com o áudio. Sem rede: fontes e imagens ficam no projeto.</p></div>
   </div>
@@ -189,7 +189,7 @@ sudo apt install python3-numpy python3-scipy python3-pil
 python3 -m pip install --user numpy scipy pillow</pre></div>
     <div class="card"><h3>Playwright + Chromium</h3><p>Um navegador sem janela, controlado por script, que tira a foto de cada quadro do vídeo. Vai para <code>~/.cache</code>.</p><pre><span class="c"># o instalar.sh (passo 1) já roda isto</span>
 bash ~/projetos/video-codigo/scripts/preparar-entorno.sh</pre></div>
-    <div class="card"><h3>Voz (opcional, precisa de GPU NVIDIA)</h3><p>A voz usa o <a href="https://github.com/inematds/inemavox" target="_blank" rel="noopener">inemavox</a> instalado em <code>~/projetos/inemavox</code>: o <b>Chatterbox</b> (modelo que fala com uma voz copiada de uma gravação, a "voz clonada") e o <b>Whisper</b> (modelo que ouve o áudio e marca o tempo de cada palavra). Precisa também do <b><a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener">Miniconda</a></b> (gerenciador de ambientes Python; o instalador oficial vai para <code>~/miniconda3</code>) e de uma gravação limpa de 10–20 s da sua voz em <code>.wav</code>. No primeiro uso os modelos baixam alguns GB. Se o seu conda ou o inemavox estiverem em outro lugar, aponte com <code>CHATTERBOX_PYTHON=/caminho/python3</code> e <code>INEMAVOX_DIR=/caminho/inemavox</code>. Sem GPU ou sem o inemavox, faça vídeos só com música.</p><pre><span class="c"># os três precisam existir</span>
+    <div class="card"><h3>Voz (opcional, precisa de GPU NVIDIA)</h3><p>A voz usa o <a href="https://github.com/inematds/inemavox" target="_blank" rel="noopener">inemavox</a> instalado em <code>~/projetos/inemavox</code>: o <b>Chatterbox</b> (modelo que fala com uma voz copiada de uma gravaçêo, a "voz clonada") e o <b>Whisper</b> (modelo que ouve o áudio e marca o tempo de cada palavra). Precisa também do <b><a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener">Miniconda</a></b> (gerenciador de ambientes Python; o instalador oficial vai para <code>~/miniconda3</code>) e de uma gravaçêo limpa de 10–20 s da sua voz em <code>.wav</code>. No primeiro uso os modelos baixam alguns GB. Se o seu conda ou o inemavox estiverem em outro lugar, aponte com <code>CHATTERBOX_PYTHON=/caminho/python3</code> e <code>INEMAVOX_DIR=/caminho/inemavox</code>. Sem GPU ou sem o inemavox, faça vídeos só com música.</p><pre><span class="c"># os três precisam existir</span>
 ls ~/miniconda3/envs/chatterbox/bin/python3 \
    ~/projetos/inemavox/chatterbox_tts_worker.py \
    ~/projetos/inemavox/venv/bin/python
@@ -204,7 +204,7 @@ cd ~/projetos/inemavox && python3 -m venv venv && venv/bin/pip install faster-wh
 <section id="guia"><div class="wrap">
   <span class="chip">Guia de uso · passo a passo</span>
   <h2>Seu primeiro vídeo com código</h2>
-  <p class="sub">O jeito normal é só pedir ao agente (passo 2): ele escreve o roteiro e as cenas e roda tudo. Os comandos dos passos seguintes são o que ele roda — e servem para você refazer uma etapa à mão. Para isso, rode antes no terminal (<code>$K</code> é a pasta do kit, <code>$P</code> a do seu vídeo):</p>
+  <p class="sub">O jeito normal é só pedir ao agente (passo 2): ele escreve o roteiro e as cenas e roda tudo. Os comandos dos passos seguintes sêo o que ele roda — e servem para você refazer uma etapa à mêo. Para isso, rode antes no terminal (<code>$K</code> é a pasta do kit, <code>$P</code> a do seu vídeo):</p>
 <pre><span class="k">K=~/projetos/video-codigo</span>                      <span class="c"># onde o kit foi clonado</span>
 <span class="k">P=~/videos/trabalho/2026-11-06-meuapp</span>         <span class="c"># uma pasta por vídeo</span>
 <span class="k">mkdir -p "$P"</span></pre>
@@ -214,53 +214,53 @@ cd ~/projetos/inemavox && python3 -m venv venv && venv/bin/pip install faster-wh
     <p>Clona o repositório, liga a skill no Claude Code e no Codex e instala o navegador do render.</p>
 <pre><span class="k">git clone https://github.com/inematds/video-codigo ~/projetos/video-codigo</span>
 <span class="k">bash ~/projetos/video-codigo/instalar.sh</span>  <span class="c"># ✓ skill em ~/.claude/skills/video-codigo</span></pre>
-    <p>Teste a instalação renderizando o exemplo pronto (não precisa de voz nem de GPU; leva cerca de 1 minuto):</p>
+    <p>Teste a instalaçêo renderizando o exemplo pronto (nêo precisa de voz nem de GPU; leva cerca de 1 minuto):</p>
 <pre><span class="k">cd ~/projetos/video-codigo/exemplos/lancamento && node ../../scripts/render-video.mjs --project . --output teste.mp4 --audio audio/lancamento/mezcla.wav --overwrite</span></pre>
   </div></div>
 
   <div class="step"><div class="b">2</div><div>
     <h3>Peça o vídeo</h3>
-    <p>Diga o assunto e, se tiver, onde está o material. O agente faz as três perguntas que faltarem. Para narrar com a sua voz, diga onde está a gravação <code>.wav</code>.</p>
+    <p>Diga o assunto e, se tiver, onde está o material. O agente faz as três perguntas que faltarem. Para narrar com a sua voz, diga onde está a gravaçêo <code>.wav</code>.</p>
 <pre><span class="k">/video-codigo</span> <span class="s">faz um vídeo de 40 s do meu app, lê a pasta ~/projetos/meu-app, narrado com a voz de ~/minha-voz.wav, estilo INEMA</span></pre>
   </div></div>
 
   <div class="step"><div class="b">↷</div><div>
     <h3>Sem voz? O relógio é a música</h3>
-    <p>Sem narração você não precisa de roteiro nem de GPU. O mais simples é pedir ao agente ("só com música, 20 s") — ele escreve as cenas. Para partir do exemplo de lançamento à mão, saiba o que mudar no <code>&lt;script&gt;</code> do <code>index.html</code>:</p>
-    <p>• <code>window.videoSpec = {… duration: 21}</code> — a duração do vídeo em segundos; use a mesma da música.<br>
-    • <code>SEG</code> — a lista das etapas: <code>a</code> e <code>b</code> são os segundos em que cada etapa entra e sai, <code>rot</code> e <code>sub</code> são o título e a linha de baixo.<br>
+    <p>Sem narraçêo você nêo precisa de roteiro nem de GPU. O mais simples é pedir ao agente ("só com música, 20 s") — ele escreve as cenas. Para partir do exemplo de lançamento à mêo, saiba o que mudar no <code>&lt;script&gt;</code> do <code>index.html</code>:</p>
+    <p>• <code>window.videoSpec = {… duration: 21}</code> — a duraçêo do vídeo em segundos; use a mesma da música.<br>
+    • <code>SEG</code> — a lista das etapas: <code>a</code> e <code>b</code> sêo os segundos em que cada etapa entra e sai, <code>rot</code> e <code>sub</code> sêo o título e a linha de baixo.<br>
     • <code>S</code> — onde fica e que tamanho tem a forma amarela em cada segundo (<code>t</code>), que é o que liga uma etapa à outra.<br>
     • <code>function conteudo</code> — o desenho dentro da forma em cada etapa (módulos, página, play, terminal, conversa). Troque pelos do seu produto.</p>
 <pre><span class="k">cp -r $K/exemplos/lancamento/{index.html,motion.mjs,inema} $P/</span>
-<span class="k">python3 $K/scripts/mezcla.py --projeto $P --id meuapp --duracao 21 --musica energica --lufs -14</span>  <span class="c"># mesma duração do videoSpec</span></pre>
+<span class="k">python3 $K/scripts/mezcla.py --projeto $P --id meuapp --duracao 21 --musica energica --lufs -14</span>  <span class="c"># mesma duraçêo do videoSpec</span></pre>
     <p>Depois vá ao passo 7 (prova) e ao 8 (render, com <code>--audio $P/audio/meuapp/mezcla.wav</code>).</p>
   </div></div>
 
   <div class="step"><div class="b">3</div><div>
     <h3>Roteiro com uma frase por instante</h3>
-    <p>Arquivo <code>$P/roteiro.json</code>. Cada frase tem um <code>id</code>: é nele que a imagem se prende. Em <code>voz</code>, o caminho da sua gravação. O <code>dicionario</code> troca o que aparece na tela pelo que a voz deve ler.</p>
+    <p>Arquivo <code>$P/roteiro.json</code>. Cada frase tem um <code>id</code>: é nele que a imagem se prende. Em <code>voz</code>, o caminho da sua gravaçêo. O <code>dicionario</code> troca o que aparece na tela pelo que a voz deve ler.</p>
 <pre>{"id": "meuapp", "pausa": 0.28, "voz": "/home/voce/minha-voz.wav",
  "dicionario": [["16:9", "dezesseis por nove"]],
  "blocos": [{"id": "abertura", "frases": [
-   {"id": "hook", "texto": "Este vídeo não tem câmera."},
+   {"id": "hook", "texto": "Este vídeo nêo tem câmera."},
    {"id": "codigo", "texto": "Cada quadro foi escrito em código."}]}]}</pre>
   </div></div>
 
   <div class="step"><div class="b">4</div><div>
     <h3>Gere a voz com o tempo de cada palavra</h3>
-    <p>Roda no seu computador. Sai <code>$P/voz/meuapp/voz.wav</code> e <code>$P/voz/meuapp/tiempos.js</code> (o tempo de cada palavra); frase abaixo de 80% de semelhança é refeita sozinha. Cada frase é ouvida pelo Whisper: se não bate com o texto (ou um número sai trocado), é gerada de novo, até <code>--tentativas</code> vezes. O relatório fica em <code>$P/voz/meuapp/checagem.md</code>, com o que o Whisper ouviu — leia as frases marcadas com ⚠.</p>
+    <p>Roda no seu computador. Sai <code>$P/voz/meuapp/voz.wav</code> e <code>$P/voz/meuapp/tiempos.js</code> (o tempo de cada palavra); frase abaixo de 80% de semelhança é refeita sozinha. Cada frase é ouvida pelo Whisper: se nêo bate com o texto (ou um número sai trocado), é gerada de novo, até <code>--tentativas</code> vezes. O relatório fica em <code>$P/voz/meuapp/checagem.md</code>, com o que o Whisper ouviu — leia as frases marcadas com ⚠.</p>
 <pre><span class="k">python3 $K/scripts/voz.py --projeto $P $P/roteiro.json</span>  <span class="c"># ex.: meuapp: 41.9 s · 12 frases · 107 palavras</span></pre>
   </div></div>
 
   <div class="step"><div class="b">5</div><div>
     <h3>Música por baixo</h3>
-    <p>Música original sintetizada (<code>energica</code>, 120 batidas por minuto; <code>tranquila</code>, 84; ou <code>--pista</code> com a sua música), 24 dB abaixo da voz enquanto se fala. <code>--lufs -14</code> deixa o volume final no nível que YouTube e Instagram usam (assim a plataforma não abaixa nem estoura o som). Sem voz, passe <code>--duracao</code> em segundos. A música se prende aos cortes das cenas: cada troca de cena cai num tempo forte, na troca de acorde, sem pulo de volume. No fim o script confere isso, a voz na frente e a ausência de whoosh, e grava <code>trilha.json</code>.</p>
+    <p>Música original sintetizada (<code>energica</code>, 120 batidas por minuto; <code>tranquila</code>, 84; ou <code>--pista</code> com a sua música), 24 dB abaixo da voz enquanto se fala. <code>--lufs -14</code> deixa o volume final no nível que YouTube e Instagram usam (assim a plataforma nêo abaixa nem estoura o som). Sem voz, passe <code>--duracao</code> em segundos. A música se prende aos cortes das cenas: cada troca de cena cai num tempo forte, na troca de acorde, sem pulo de volume. No fim o script confere isso, a voz na frente e a ausência de whoosh, e grava <code>trilha.json</code>.</p>
 <pre><span class="k">python3 $K/scripts/mezcla.py --projeto $P --id meuapp --musica tranquila --lufs -14</span>  <span class="c"># → $P/audio/meuapp/mezcla.wav</span></pre>
   </div></div>
 
   <div class="step"><div class="b">6</div><div>
     <h3>Cenas presas à fala</h3>
-    <p>Parta do exemplo narrado: ele já traz o tema, o motor de tempo e o esqueleto que o render usa (<code>videoSpec</code> = tamanho e duração, <code>seek(t)</code> = desenha o instante <code>t</code>, <code>renderReady</code> = avisa quando fontes e imagens carregaram). Troque o texto das cenas e, em todo <code>pal('frase', 'palavra')</code>, <code>ini('frase')</code> e <code>data-in</code>, os <code>id</code> e palavras pelos do seu roteiro. Se sobrar algum do exemplo, o render para e diz qual: <code>Não encontrei «câmera» na frase hook do roteiro</code>.</p>
+    <p>Parta do exemplo narrado: ele já traz o tema, o motor de tempo e o esqueleto que o render usa (<code>videoSpec</code> = tamanho e duraçêo, <code>seek(t)</code> = desenha o instante <code>t</code>, <code>renderReady</code> = avisa quando fontes e imagens carregaram). Troque o texto das cenas e, em todo <code>pal('frase', 'palavra')</code>, <code>ini('frase')</code> e <code>data-in</code>, os <code>id</code> e palavras pelos do seu roteiro. Se sobrar algum do exemplo, o render para e diz qual: <code>Nêo encontrei «câmera» na frase hook do roteiro</code>.</p>
 <pre><span class="k">cp -r $K/exemplos/explicativo-narrado/{index.html,engine.mjs,motion.mjs,declarativo.mjs,inema} $P/</span>
 <span class="k">cp $P/voz/meuapp/tiempos.js $P/</span>   <span class="c"># os tempos da sua voz</span></pre>
 <pre><span class="c">// no &lt;script&gt; do index.html: cada elemento entra na palavra dita</span>
@@ -270,7 +270,7 @@ pop($('.onda', c1), t, ini('voz'));                 <span class="c">// entra no 
 
   <div class="step"><div class="b">7</div><div>
     <h3>Prova antes do render inteiro</h3>
-    <p>Tire quadros soltos nos momentos difíceis, nos dois formatos, e olhe antes de gastar tempo com o vídeo todo. <code>--still</code> é o segundo do vídeo (tem que estar dentro da duração; num roteiro de 5 s, use 2 ou 3).</p>
+    <p>Tire quadros soltos nos momentos difíceis, nos dois formatos, e olhe antes de gastar tempo com o vídeo todo. <code>--still</code> é o segundo do vídeo (tem que estar dentro da duraçêo; num roteiro de 5 s, use 2 ou 3).</p>
 <pre><span class="k">node $K/scripts/render-video.mjs --project $P --output $P/prova.png --still 2</span>
 <span class="k">node $K/scripts/render-video.mjs --project $P --output $P/prova-v.png --still 2 --width 1080 --height 1920</span></pre>
     <p>Confira também se todo texto fica o tempo de ser lido (1 s + 0,3 s por palavra, mínimo 1,5 s) e grave os cortes das cenas; depois rode a música de novo para ela se prender a eles.</p>
@@ -279,7 +279,7 @@ pop($('.onda', c1), t, ini('voz'));                 <span class="c">// entra no 
   </div></div>
 
   <div class="step"><div class="b">8</div><div>
-    <h3>Render e revisão</h3>
+    <h3>Render e revisêo</h3>
     <p>Um MP4 por formato e uma folha de quadros para conferir o vídeo inteiro de uma vez.</p>
 <pre><span class="k">node $K/scripts/render-video.mjs --project $P --output $P/renders/meuapp-16x9.mp4 --audio $P/audio/meuapp/mezcla.wav</span>
 <span class="k">node $K/scripts/render-video.mjs --project $P --output $P/renders/meuapp-9x16.mp4 --width 1080 --height 1920 --audio $P/audio/meuapp/mezcla.wav</span>
@@ -288,8 +288,8 @@ pop($('.onda', c1), t, ini('voz'));                 <span class="c">// entra no 
 
   <div class="step"><div class="b">9</div><div>
     <h3>Modo b-roll: vídeo de pessoa falando</h3>
-    <p>Para aula, depoimento ou avatar: a gravação não é cortada. A partir da transcrição com o tempo de cada palavra, o kit decide frase a frase o que a tela mostra — a pessoa inteira, a pessoa num círculo com o conceito desenhado em traço, ou um gráfico em tela cheia — e monta o projeto pronto para renderizar. Revise <code>$P/plano.md</code> e edite <code>$P/plano.json</code> antes do render.</p>
-<pre><span class="c"># transcrição local com o tempo de cada palavra</span>
+    <p>Para aula, depoimento ou avatar: a gravaçêo nêo é cortada. A partir da transcriçêo com o tempo de cada palavra, o kit decide frase a frase o que a tela mostra — a pessoa inteira, a pessoa num círculo com o conceito desenhado em traço, ou um gráfico em tela cheia — e monta o projeto pronto para renderizar. Revise <code>$P/plano.md</code> e edite <code>$P/plano.json</code> antes do render.</p>
+<pre><span class="c"># transcriçêo local com o tempo de cada palavra</span>
 <span class="k">cd ~/projetos/inemavox && venv/bin/python transcrever_v1.py --in aula.mp4 --outdir $P/transcricao --src pt --words</span>
 <span class="c"># plano + molde + quadros + áudio; --rosto = onde está o rosto</span>
 <span class="k">python3 $K/scripts/broll-plano.py --fala aula.mp4 --transcricao $P/transcricao/transcript.json --projeto $P --rosto 0.58,0.45,0.38</span>
@@ -303,12 +303,12 @@ pop($('.onda', c1), t, ini('voz'));                 <span class="c">// entra no 
 <section id="exemplos"><div class="wrap">
   <span class="chip">Exemplos</span>
   <h2>Três vídeos feitos com o próprio kit</h2>
-  <p class="sub">Código, roteiro e áudio de cada um estão em <a href="https://github.com/inematds/video-codigo/tree/main/exemplos" target="_blank" rel="noopener"><code>exemplos/</code></a>. Nenhum quadro foi filmado. O primeiro sucesso mais rápido, sem voz nem GPU: renderize o exemplo de lançamento.</p>
+  <p class="sub">Código, roteiro e áudio de cada um estêo em <a href="https://github.com/inematds/video-codigo/tree/main/exemplos" target="_blank" rel="noopener"><code>exemplos/</code></a>. Nenhum quadro foi filmado. O primeiro sucesso mais rápido, sem voz nem GPU: renderize o exemplo de lançamento.</p>
 <pre><span class="k">cd $K/exemplos/lancamento && node ../../scripts/render-video.mjs --project . --output teste.mp4 --audio audio/lancamento/mezcla.wav --overwrite</span></pre>
   <div class="ex">
-    <figure style="grid-column:1/-1"><video controls preload="none" playsinline poster="assets/atende-16x9.jpg" src="../renders/atende-16x9.mp4" style="width:100%;display:block"></video><figcaption><b>Filme de produto do atende-leads</b> (63 s) — recria as telas reais: leads esperando no WhatsApp, o agente que qualifica, o chamado no Telegram que passa da Ana ao Bruno em 2 min, o painel da equipe, a sugestão de resposta e a venda. Cursor clicando, voz do Nei presa a cada palavra. Caso de exemplo. <a href="../renders/atende-9x16.mp4">versão 9:16</a> · <a href="https://www.youtube.com/watch?v=tWv1mEIK62c" target="_blank" rel="noopener">YouTube</a></figcaption></figure>
-    <figure><video controls preload="none" playsinline poster="assets/explicativo-16x9.jpg" src="../renders/explicativo-16x9.mp4" style="width:100%;display:block"></video><figcaption><b>Explicativo narrado</b> (44 s) — voz local do Nei; código digitando, marcas de tempo de cada palavra e o quadro 16:9 virando 9:16 na palavra certa. <a href="../renders/explicativo-9x16.mp4">versão 9:16</a> · <a href="https://www.youtube.com/watch?v=tkT2I6nrMAk" target="_blank" rel="noopener">YouTube</a></figcaption></figure>
-    <figure><video controls preload="none" playsinline poster="assets/lancamento-16x9.jpg" src="../renders/lancamento-16x9.mp4" style="width:100%;display:block"></video><figcaption><b>Lançamento só com música</b> (21 s) — um plano só: a mesma forma vira curso, guia, vídeo, kit, comunidade e o ponto do INEMA.CLUB. <a href="../renders/lancamento-9x16.mp4">versão 9:16</a> · <a href="https://www.youtube.com/watch?v=IJ-qZQ1drBc" target="_blank" rel="noopener">YouTube</a></figcaption></figure>
+    <figure style="grid-column:1/-1"><video controls preload="none" playsinline poster="assets/atende-16x9.jpg" src="../renders/atende-16x9.mp4" style="width:100%;display:block"></video><figcaption><b>Filme de produto do atende-leads</b> (63 s) — recria as telas reais: leads esperando no WhatsApp, o agente que qualifica, o chamado no Telegram que passa da Ana ao Bruno em 2 min, o painel da equipe, a sugestêo de resposta e a venda. Cursor clicando, voz do Nei presa a cada palavra. Caso de exemplo. <a href="../renders/atende-9x16.mp4">versêo 9:16</a> · <a href="https://www.youtube.com/watch?v=tWv1mEIK62c" target="_blank" rel="noopener">YouTube</a></figcaption></figure>
+    <figure><video controls preload="none" playsinline poster="assets/explicativo-16x9.jpg" src="../renders/explicativo-16x9.mp4" style="width:100%;display:block"></video><figcaption><b>Explicativo narrado</b> (44 s) — voz local do Nei; código digitando, marcas de tempo de cada palavra e o quadro 16:9 virando 9:16 na palavra certa. <a href="../renders/explicativo-9x16.mp4">versêo 9:16</a> · <a href="https://www.youtube.com/watch?v=tkT2I6nrMAk" target="_blank" rel="noopener">YouTube</a></figcaption></figure>
+    <figure><video controls preload="none" playsinline poster="assets/lancamento-16x9.jpg" src="../renders/lancamento-16x9.mp4" style="width:100%;display:block"></video><figcaption><b>Lançamento só com música</b> (21 s) — um plano só: a mesma forma vira curso, guia, vídeo, kit, comunidade e o ponto do INEMA.CLUB. <a href="../renders/lancamento-9x16.mp4">versêo 9:16</a> · <a href="https://www.youtube.com/watch?v=IJ-qZQ1drBc" target="_blank" rel="noopener">YouTube</a></figcaption></figure>
   </div>
 </div></section>
 

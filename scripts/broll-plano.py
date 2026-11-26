@@ -1,19 +1,19 @@
-"""b-roll automático: vídeo de pessoa falando + transcrição com tempo por palavra → plano frase a frase + projeto pronto
+"""b-roll automático: vídeo de pessoa falando + transcriçêo com tempo por palavra → plano frase a frase + projeto pronto
 para renderizar no molde assets/broll/. Sem API: só heurística local (o agente revisa e edita o plano depois).
 
 Uso:
   python3 broll-plano.py --fala aula.mp4 --transcricao transcricao/transcript.json --projeto P [--rosto 0.58,0.42,0.30]
-  python3 broll-plano.py --projeto P --replanejar        (refaz plano.js depois de editar P/plano.json à mão)
+  python3 broll-plano.py --projeto P --replanejar        (refaz plano.js depois de editar P/plano.json à mêo)
 
-Transcrição aceita (o inemavox gera as duas primeiras com `transcrever_v1.py --words`):
+Transcriçêo aceita (o inemavox gera as duas primeiras com `transcrever_v1.py --words`):
   transcript.json [{start, end, text, words:[{word, start, end}]}] · words.json [{word, start, end}] ·
   tempos.json do voz.py ({palabras:[{texto, inicio, fin}]}) · tempos.json do r7ex ([{palavras:[{w, t, f}]}]) ·
-  .srt (só tempo por legenda: as palavras são repartidas — prefira os formatos com palavra).
+  .srt (só tempo por legenda: as palavras sêo repartidas — prefira os formatos com palavra).
 
 Três tratamentos, um por frase:
-  rosto   a pessoa inteira, nada por cima — abertura, opinião, história, chamada final, fechamento.
+  rosto   a pessoa inteira, nada por cima — abertura, opiniêo, história, chamada final, fechamento.
   pip     a pessoa vai para um círculo no canto e a tela mostra o CONCEITO desenhado em traço (ícone + palavra).
-  cheio   gráfico em tela cheia (número, comparação, lista/passos) e a voz continua — quando mostrar explica melhor.
+  cheio   gráfico em tela cheia (número, comparaçêo, lista/passos) e a voz continua — quando mostrar explica melhor.
 Ritmo conferido: abre e fecha em rosto · rosto ≤ 8 s seguidos · cheio de 3 a 8 s · nunca dois cheios colados.
 Cada visual tem uma âncora: o número cai NA palavra do número; o desenho do conceito começa ~0,25 s antes da palavra.
 
@@ -35,9 +35,9 @@ AQUI = pathlib.Path(__file__).resolve().parent
 KIT = AQUI.parent
 
 PARADA = set("""a o as os um uma uns umas de da do das dos e é em no na nos nas por para pra com sem que se ser
-foi era são está esta este isso isto essa esse aqui ali lá mais menos muito muita pouco já não sim ou mas como quando
+foi era sêo está esta este isso isto essa esse aqui ali lá mais menos muito muita pouco já nêo sim ou mas como quando
 onde também só tudo nada você vocês eu ele ela eles elas nós me te lhe seu sua meu minha teu tua ao aos à às pelo pela
-pode podem precisa precisam vai vão ter tem tinha fazer faz depois antes então porque qual quais quem até sobre entre
+pode podem precisa precisam vai vêo ter tem tinha fazer faz depois antes entêo porque qual quais quem até sobre entre
 cada todo toda todos todas outro outra mesmo mesma bem ainda agora hoje vem""".split())
 NUM_PAL = {"zero": 0, "um": 1, "uma": 1, "dois": 2, "duas": 2, "três": 3, "tres": 3, "quatro": 4, "cinco": 5, "seis": 6,
            "sete": 7, "oito": 8, "nove": 9, "dez": 10, "onze": 11, "doze": 12, "quinze": 15, "vinte": 20, "trinta": 30,
@@ -74,7 +74,7 @@ def ler_palavras(arq):
             g = [int(x) for x in m.groups()]
             a, b = g[0] * 3600 + g[1] * 60 + g[2] + g[3] / 1000, g[4] * 3600 + g[5] * 60 + g[6] + g[7] / 1000
             ws = " ".join(ls[[i for i, l in enumerate(ls) if "-->" in l][0] + 1:]).split()
-            for i, w in enumerate(ws):   # SRT não tem tempo por palavra: reparte
+            for i, w in enumerate(ws):   # SRT nêo tem tempo por palavra: reparte
                 out.append({"w": w, "t": a + (b - a) * i / len(ws), "f": a + (b - a) * (i + 1) / len(ws)})
         return out
     d = json.loads(p.read_text(encoding="utf-8"))
@@ -88,7 +88,7 @@ def ler_palavras(arq):
         return [{"w": x["word"], "t": x["start"], "f": x["end"]} for s in d for x in s["words"]]
     if isinstance(d, list) and d and "word" in d[0]:
         return [{"w": x["word"], "t": x["start"], "f": x["end"]} for x in d]
-    sys.exit(f"Formato de transcrição não reconhecido: {arq} (precisa de tempo por palavra; ver --help)")
+    sys.exit(f"Formato de transcriçêo nêo reconhecido: {arq} (precisa de tempo por palavra; ver --help)")
 
 
 def frases(pal, max_dur=9.0):
@@ -121,7 +121,7 @@ def numeros(ws):
 
 
 def conceito(ws):
-    """A palavra que carrega a frase (substantivo comprido, não comum) e o ícone que a desenha."""
+    """A palavra que carrega a frase (substantivo comprido, nêo comum) e o ícone que a desenha."""
     cands = []
     for i, w in enumerate(ws):
         s = re.sub(r"[^\wà-ú]", "", w["w"].lower())
@@ -150,7 +150,7 @@ def classificar(ws, idx, total):
     if PASSOS.search(txt) and len(itens) >= 3:
         return "cheio", "sequência de passos: mostrar ordena melhor que falar", "passos"
     if len(nums) >= 2 and (COMPARA.search(txt) or len(nums) == 2):
-        return "cheio", "dois números: comparação em barras", "comparacao"
+        return "cheio", "dois números: comparaçêo em barras", "comparacao"
     if nums and dur >= 2.0:
         return "cheio", "número na fala: ele aparece cheio, na palavra", "numero"
     return "pip", "um conceito: desenhado em traço, pessoa no canto", None
@@ -187,7 +187,7 @@ def visual(ws, trat, tipo):
     itens = [x for x in itens if x]
     cab = None
     if len(itens) > 2 and len(itens[0]) <= 5 and PASSOS.search(" ".join(w["w"] for w in itens[0])):
-        cab = itens.pop(0)   # "São três passos:" vira o título
+        cab = itens.pop(0)   # "Sêo três passos:" vira o título
     return {"tipo": "passos", "titulo": " ".join(w["w"] for w in cab).strip(":,. ").upper() if cab else base["titulo"],
             "itens": [{"texto": " ".join(w["w"] for w in it).strip(",:;. ").removeprefix("e ").strip(), "t": it[0]["t"]} for it in itens[:5]],
             "ancora": itens[0][0]["t"] if itens else ws[0]["t"]}
@@ -227,13 +227,13 @@ def segurar(plano, avisos):
         if prox["fim"] - fim_v < 1.0 and i + 1 < len(plano) - 1:
             prox["tratamento"], prox["motivo"], prox["visual"] = "segue", "o visual anterior ainda está sendo lido", {"tipo": "nenhum"}
         elif i + 1 == len(plano) - 1 and prox["fim"] - fim_v < 1.0:
-            avisos.append(f"{p['id']}: o texto não cabe antes do fechamento — encurte o texto na tela")
+            avisos.append(f"{p['id']}: o texto nêo cabe antes do fechamento — encurte o texto na tela")
 
 
 def ritmo(plano):
     """Aplica as regras de ritmo e devolve os avisos que sobraram."""
     avisos = []
-    # traço curto (< 1,8 s) não dá tempo de ler o conceito: volta ao rosto (uma volta curta à pessoa também dá ritmo)
+    # traço curto (< 1,8 s) nêo dá tempo de ler o conceito: volta ao rosto (uma volta curta à pessoa também dá ritmo)
     for i, p in enumerate(plano):
         if p["tratamento"] == "pip" and p["fim"] - p["inicio"] < 1.8:
             p["tratamento"], p["motivo"], p["visual"] = "rosto", f"frase curta ({p['fim'] - p['inicio']:.1f} s) para desenhar um conceito", {"tipo": "nenhum"}
@@ -243,7 +243,7 @@ def ritmo(plano):
             b["tratamento"], b["motivo"] = "pip", "ia ser cheio colado no anterior: virou traço (volta ao rosto no canto)"
             b["visual"] = {"tipo": "traco", **{k: v for k, v in b["visual"].items() if k in ("titulo", "icone", "ancora", "palavra")}}
             b["visual"].setdefault("titulo", ""); b["visual"].setdefault("icone", "lampada")
-    # cheio curto (< 3 s) estica sobre a frase seguinte se ela não for rosto de abertura/fecho; senão vira pip
+    # cheio curto (< 3 s) estica sobre a frase seguinte se ela nêo for rosto de abertura/fecho; senêo vira pip
     for i, p in enumerate(plano):
         if p["tratamento"] == "cheio" and p["fim"] - p["inicio"] < 3.0:
             if i + 1 < len(plano) - 1 and plano[i + 1]["tratamento"] == "pip":
@@ -271,8 +271,8 @@ def ritmo(plano):
             avisos.append(f"{plano[i]['id']}–{plano[j]['id']}: rosto por {plano[j]['fim'] - plano[i]['inicio']:.1f} s (> 8 s)")
         i = j + 1
     segurar(plano, avisos)
-    if plano[0]["tratamento"] != "rosto": avisos.append("não abre no rosto")
-    if plano[-1]["tratamento"] != "rosto": avisos.append("não fecha no rosto")
+    if plano[0]["tratamento"] != "rosto": avisos.append("nêo abre no rosto")
+    if plano[-1]["tratamento"] != "rosto": avisos.append("nêo fecha no rosto")
     return avisos
 
 
@@ -312,11 +312,11 @@ def main():
     ap.add_argument("--fala", help="vídeo da pessoa falando (mp4)")
     ap.add_argument("--transcricao", help="transcript.json / words.json / tempos.json / .srt")
     ap.add_argument("--projeto", required=True, help="pasta do projeto b-roll (é criada)")
-    ap.add_argument("--rosto", default="0.5,0.42,0.30", help="centro x, centro y e raio do rosto, em fração da ALTURA p/ o raio (padrão 0.5,0.42,0.30)")
+    ap.add_argument("--rosto", default="0.5,0.42,0.30", help="centro x, centro y e raio do rosto, em fraçêo da ALTURA p/ o raio (padrêo 0.5,0.42,0.30)")
     ap.add_argument("--rosto-tamanho", default="inteiro", choices=["inteiro", "meia"],
-                    help="tratamento rosto: tela inteira (padrão) ou meia tela (regra INEMA de avatar: no máximo meia tela)")
+                    help="tratamento rosto: tela inteira (padrêo) ou meia tela (regra INEMA de avatar: no máximo meia tela)")
     ap.add_argument("--replanejar", action="store_true", help="só refaz plano.js/plano.md a partir do plano.json editado")
-    ap.add_argument("--sem-quadros", action="store_true", help="não extrai os quadros (já extraídos)")
+    ap.add_argument("--sem-quadros", action="store_true", help="nêo extrai os quadros (já extraídos)")
     a = ap.parse_args()
     P = pathlib.Path(a.projeto).resolve()
 
@@ -332,13 +332,13 @@ def main():
     W, H, fps, dur = sonda(a.fala)
     pal = ler_palavras(a.transcricao)
     if not pal:
-        sys.exit("Transcrição sem palavras.")
+        sys.exit("Transcriçêo sem palavras.")
     grupos = []
     for g in frases(pal):
         if grupos and g[-1]["f"] - g[0]["t"] < 0.8:      # caco de < 0,8 s (palavra repetida pelo Whisper) junta na anterior
             grupos[-1] += g; continue
         if grupos and len(grupos[-1]) <= 5 and PASSOS.search(" ".join(w["w"] for w in grupos[-1])) and numeros(grupos[-1]):
-            grupos[-1] += g; continue                    # "São três passos." + a frase com os passos = um gráfico só
+            grupos[-1] += g; continue                    # "Sêo três passos." + a frase com os passos = um gráfico só
         grupos.append(g)
     plano = []
     for i, ws in enumerate(grupos):

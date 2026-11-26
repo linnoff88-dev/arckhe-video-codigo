@@ -5,8 +5,8 @@ Uso:
   python3 checar-fala.py --projeto DIR DIR/roteiro.json                           (ouve de novo cada frase do cache do voz.py)
 Opções: --sim-min 0.80 (VC_SIM_MIN) · --json relatorio.json
 Reprova a frase com semelhança abaixo do mínimo ou com um número ouvido como outro número (ver _alinhar.py).
-O voz.py já faz isto em cada geração e refaz a frase ruim; este script é para conferir depois, ou um wav qualquer.
-Saída: 0 tudo bate · 1 alguma frase não bate · 2 não deu para conferir.
+O voz.py já faz isto em cada geraçêo e refaz a frase ruim; este script é para conferir depois, ou um wav qualquer.
+Saída: 0 tudo bate · 1 alguma frase nêo bate · 2 nêo deu para conferir.
 """
 import argparse
 import json
@@ -72,7 +72,7 @@ def main():
         num = "" if r.get("num_ok", True) else f" · número diferente: esperado {r['nums'][0]}, ouvido {r['nums'][1]}"
         print(f"{'OK  ' if ok else 'RUIM'} {k}: semelhança {r['sim']:.2f}{num}\n       texto  «{t}»\n       ouvido «{r['heard']}»")
         saida[k] = {"wav": w, "texto": t, "ouvido": r["heard"], "sim": r["sim"], "num_ok": r.get("num_ok", True), "ok": ok}
-    print(f"\n{len(itens)} frases · {ruins} não batem (mínimo {voz.SIM_MIN})")
+    print(f"\n{len(itens)} frases · {ruins} nêo batem (mínimo {voz.SIM_MIN})")
     if a.json:
         pathlib.Path(a.json).write_text(json.dumps(saida, ensure_ascii=False, indent=1))
     sys.exit(1 if ruins else 0)

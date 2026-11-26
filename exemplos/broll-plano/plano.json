@@ -409,7 +409,7 @@
    "id": "f06",
    "inicio": 19.52,
    "fim": 20.68,
-   "texto": "Não precisa programar.",
+   "texto": "Nêo precisa programar.",
    "tratamento": "rosto",
    "motivo": "frase curta (1.2 s) para desenhar um conceito",
    "visual": {
@@ -417,7 +417,7 @@
    },
    "palavras": [
     [
-     "Não",
+     "Nêo",
      19.52,
      19.86
     ],
@@ -437,12 +437,12 @@
    "id": "f07",
    "inicio": 20.76,
    "fim": 25.36,
-   "texto": "São três passos. Escolher a tarefa, testar um pedido claro e conferir o que saiu.",
+   "texto": "Sêo três passos. Escolher a tarefa, testar um pedido claro e conferir o que saiu.",
    "tratamento": "cheio",
    "motivo": "sequência de passos: mostrar ordena melhor que falar",
    "visual": {
     "tipo": "passos",
-    "titulo": "SÃO TRÊS PASSOS",
+    "titulo": "SêO TRÊS PASSOS",
     "itens": [
      {
       "texto": "Escolher a tarefa",
@@ -461,7 +461,7 @@
    },
    "palavras": [
     [
-     "São",
+     "Sêo",
      20.76,
      21.14
     ],
@@ -542,7 +542,7 @@
    "id": "f08",
    "inicio": 25.54,
    "fim": 27.26,
-   "texto": "Messa também o tempo de revisão.",
+   "texto": "Messa também o tempo de revisêo.",
    "tratamento": "segue",
    "motivo": "o visual anterior ainda está sendo lido",
    "visual": {
@@ -575,7 +575,7 @@
      26.9
     ],
     [
-     "revisão.",
+     "revisêo.",
      26.9,
      27.26
     ]

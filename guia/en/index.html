@@ -260,7 +260,7 @@ cd ~/projetos/inemavox && python3 -m venv venv && venv/bin/pip install faster-wh
 
   <div class="step"><div class="b">6</div><div>
     <h3>Scenes synced to speech</h3>
-    <p>Start from the narrated example: it already includes the theme, timing engine, and skeleton used by the renderer (<code>videoSpec</code> = size and duration, <code>seek(t)</code> = draws moment <code>t</code>, <code>renderReady</code> = signals when fonts and images have loaded). Replace the scene text and, in every <code>pal('frase', 'palavra')</code>, <code>ini('frase')</code>, and <code>data-in</code>, use the <code>id</code>s and words from your script. If any from the example are left over, the render stops and tells you which one: <code>Não encontrei «câmera» na frase hook do roteiro</code>.</p>
+    <p>Start from the narrated example: it already includes the theme, timing engine, and skeleton used by the renderer (<code>videoSpec</code> = size and duration, <code>seek(t)</code> = draws moment <code>t</code>, <code>renderReady</code> = signals when fonts and images have loaded). Replace the scene text and, in every <code>pal('frase', 'palavra')</code>, <code>ini('frase')</code>, and <code>data-in</code>, use the <code>id</code>s and words from your script. If any from the example are left over, the render stops and tells you which one: <code>Nêo encontrei «câmera» na frase hook do roteiro</code>.</p>
 <pre><span class="k">cp -r $K/exemplos/explicativo-narrado/{index.html,engine.mjs,motion.mjs,declarativo.mjs,inema} $P/</span>
 <span class="k">cp $P/voz/meuapp/tiempos.js $P/</span>   <span class="c"># your voice timings</span></pre>
 <pre><span class="c">// in the &lt;script&gt; in index.html: each element appears on the spoken word</span>

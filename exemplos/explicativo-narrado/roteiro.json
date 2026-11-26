@@ -6,7 +6,7 @@
   "dicionario": [["16:9", "dezesseis por nove"], ["9:16", "nove por dezesseis"]],
   "blocos": [
     {"id": "abertura", "frases": [
-      {"id": "hook", "texto": "Este vídeo não tem câmera."},
+      {"id": "hook", "texto": "Este vídeo nêo tem câmera."},
       {"id": "codigo", "texto": "Cada quadro foi escrito em código pelo Claude."},
       {"id": "voz", "texto": "E esta voz é a minha, gerada no meu computador."}
     ]},

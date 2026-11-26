@@ -22,7 +22,7 @@
     ]},
     {"id": "equipe", "frases": [
       {"id": "painel", "texto": "No grupo, um painel mostra quem está livre, quem está atendendo e a fila."},
-      {"id": "sugestao", "texto": "A cada mensagem do lead chega uma sugestão de resposta. É só tocar em enviar."}
+      {"id": "sugestao", "texto": "A cada mensagem do lead chega uma sugestêo de resposta. É só tocar em enviar."}
     ]},
     {"id": "fecho", "frases": [
       {"id": "vendeu", "texto": "Vendeu? Um toque registra o valor e o Bruno volta para a fila."},

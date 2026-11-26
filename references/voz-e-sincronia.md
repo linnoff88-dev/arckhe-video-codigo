@@ -4,7 +4,7 @@ Leia quando o vídeo tiver voz, ou quando tiver só música e efeitos sintetizad
 
 ## 0 · A primeira pergunta: com voz ou só com som?
 
-Não presuma que haverá voz. Antes de tudo:
+Nêo presuma que haverá voz. Antes de tudo:
 
 > «Você quer **com voz** (narrado, com a sua voz clonada no computador) ou **só dinâmico, com música**?»
 
@@ -21,7 +21,7 @@ Não presuma que haverá voz. Antes de tudo:
 
 - Uma frase = um instante ao qual a imagem se prende. `id` curtos e com sentido (`hook`, `dia1`, `preco`), sem repetir.
 - `pausa`: 0,2 s em venda (rápido), ~0,3 s em explicativo (respira). `intervalo_blocos`: ~0,6–1 s entre capítulos.
-- As chaves em espanhol do formato antigo (`bloques`, `hueco_bloques`, `diccionario`) também são aceitas.
+- As chaves em espanhol do formato antigo (`bloques`, `hueco_bloques`, `diccionario`) também sêo aceitas.
 
 ## 2 · Voz → `scripts/voz.py` (local, sem API, sem custo)
 
@@ -33,14 +33,14 @@ python3 scripts/voz.py --projeto P P/roteiro.json --refazer --frase hook   # ref
 
 Como funciona:
 1. Cada frase é falada pelo **Chatterbox** (inemavox, GPU) com a voz clonada de `voz` no roteiro ou `VC_VOZ`
-   (nome de um `.wav` em `VC_VOZES` ou caminho de um `.wav`; padrão `nei`).
+   (nome de um `.wav` em `VC_VOZES` ou caminho de um `.wav`; padrêo `nei`).
 2. O **Whisper large-v3** local ouve cada frase, mede a semelhança com o texto e dá o tempo de cada palavra.
    Frase abaixo de `VC_SIM_MIN` (0,80) é gerada de novo, até 2 vezes. O que continuar baixo aparece com ⚠.
-3. Cada frase é cortada da 1ª à última palavra ouvida (some a respiração ou o ruído do fim) e juntada com `pausa`.
+3. Cada frase é cortada da 1ª à última palavra ouvida (some a respiraçêo ou o ruído do fim) e juntada com `pausa`.
 
-- **Pronúncia:** o texto da tela e o que a voz lê são diferentes. `DICIONARIO` (no script) e `dicionario` (no roteiro)
+- **Pronúncia:** o texto da tela e o que a voz lê sêo diferentes. `DICIONARIO` (no script) e `dicionario` (no roteiro)
   trocam «Claude» → «Clód», «IA» → «i a», «16:9» → «dezesseis por nove». Ano e número sempre por extenso.
-- **⚠ que não é erro:** o Whisper escreve número em algarismo («16x9») e baixa a semelhança mesmo com a fala certa.
+- **⚠ que nêo é erro:** o Whisper escreve número em algarismo («16x9») e baixa a semelhança mesmo com a fala certa.
   Ouça o trecho antes de refazer.
 - **Saída:** `P/voz/<id>/voz.wav`, `tiempos.json` e `tiempos.js` (`window.TIEMPOS`, com `bloques`, `frases` e `palabras`).
 - **Sua própria voz:** grave 10–20 s limpos em `.wav` e use `"voz": "/caminho/minha-voz.wav"`.
@@ -51,12 +51,12 @@ Copie `engine.mjs`, `declarativo.mjs` e `motion.mjs` para o projeto. Carregue `t
 
 - `ini('frase')`, `fin('frase')`, `pal('frase', 'palavra', n)`: o instante exato em que algo é dito.
 - `Film`: cenas com `[início, fim)` e `render(t)`. `arrancar(film)` cria `videoSpec`, `seek` e `renderReady`.
-- `pop`, `win`, `ease`, `sp`, `count`, `type`, `tap`, `fill`: entradas, presença, molas, contadores, digitação, toques e barras — tudo função de `t`.
+- `pop`, `win`, `ease`, `sp`, `count`, `type`, `tap`, `fill`: entradas, presença, molas, contadores, digitaçêo, toques e barras — tudo funçêo de `t`.
 - `chat(view, col)`: conversa que desce sozinha (mensagens com `data-t`); `subtitulos(box, {max})`: legenda palavra a palavra (INEMA: `max: 3`).
 - **Declarativo** (`preparar(raiz)`), para peças longas: cada elemento diz no HTML quando entra.
   `data-in="frase@palavra"` = quando a voz diz essa palavra; `data-out`, `data-a="up|left|right|scale|fade"`,
-  `data-on` (põe a classe `on`). Aceita `+.3`, `-.2`, `:fin` e `#2` (segunda aparição).
-- Se uma palavra do roteiro mudar e um `pal()` ou `data-in` não a achar, o render para dizendo qual.
+  `data-on` (põe a classe `on`). Aceita `+.3`, `-.2`, `:fin` e `#2` (segunda apariçêo).
+- Se uma palavra do roteiro mudar e um `pal()` ou `data-in` nêo a achar, o render para dizendo qual.
 
 Regras que vieram das revisões:
 - **Quadro 0 com conteúdo** (título e protagonista já na tela): é a miniatura antes do play.
@@ -75,12 +75,12 @@ python3 scripts/mezcla.py --proyecto P --id teaser --duracion 30 --musica energi
   — só nas pausas maiores que `--respiro` (1,5 s): subir a cada frase soava como susto no corte de cena.
 - **Presa aos cortes:** com `P/audio/<id>/cortes.json` (gravado por `checar-leitura.mjs --salvar-cortes`) ou, sem ele, o
   início de cada bloco da voz, a música põe um número inteiro de tempos entre dois cortes: o corte cai no início de
-  compasso, a seção começa na tônica e o compasso antes vai à dominante. O corte se marca pela harmonia, não por volume.
+  compasso, a seçêo começa na tônica e o compasso antes vai à dominante. O corte se marca pela harmonia, nêo por volume.
 - **Conferência no fim** (`audio/<id>/trilha.json`; sai 1 se falhar, `--avisar` só avisa): compasso a ±100 ms de cada
   corte · nenhum salto > +6 dB no corte · música ≥ 18 dB abaixo da voz ao falar (`--margem-min`) · nenhum `whoosh`.
   Com `--pista` própria, é a imagem que segue a música: o relatório mostra o ataque forte mais perto; mova o corte.
-- Efeitos em `P/audio/<id>/eventos.json`, nos mesmos instantes da imagem (`"t": "frase@palavra"`). No padrão INEMA,
-  reel e short ficam **sem efeito no meio** (só voz + trilha); use efeito só para marcar uma ação que pede som.
+- Efeitos em `P/audio/<id>/eventos.json`, nos mesmos instantes da imagem (`"t": "frase@palavra"`). No padrêo INEMA,
+  reel e short ficam **sem efeito no meio** (só voz + trilha); use efeito só para marcar uma açêo que pede som.
 - Sonoridade final: −14 LUFS; pico real ≤ −1,5 dB.
 
 ## 5 · Render → `scripts/render-tramos.sh`
@@ -89,7 +89,7 @@ python3 scripts/mezcla.py --proyecto P --id teaser --duracion 30 --musica energi
 bash scripts/render-tramos.sh P venda/index.html P/renders/venda.mp4 91.633 P/audio/venda/mezcla.wav
 ```
 
-Em trechos de 60 s: não precisa de ~1,7 GB livres para os quadros de um vídeo de 9 min. Se parar, rode de novo e ele
+Em trechos de 60 s: nêo precisa de ~1,7 GB livres para os quadros de um vídeo de 9 min. Se parar, rode de novo e ele
 continua de onde estava. Se o Playwright disser que falta o navegador, rode `bash scripts/preparar-entorno.sh`.
 
 ## 6 · Entrega

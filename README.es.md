@@ -70,9 +70,9 @@ siguiente cuando hace falta).
 
 ```bash
 K=~/projetos/video-codigo; P=~/videos/trabalho/2026-11-07-aula
-# 1. transcrição com tempo por palavra (local)
+# 1. transcriçêo com tempo por palavra (local)
 cd ~/projetos/inemavox && venv/bin/python transcrever_v1.py --in aula.mp4 --outdir $P/transcricao --src pt --words
-# 2. plano + molde + quadros + áudio  (--rosto = centro x, centro y e raio do rosto; x e y em fração da largura/altura, raio em fração da altura)
+# 2. plano + molde + quadros + áudio  (--rosto = centro x, centro y e raio do rosto; x e y em fraçêo da largura/altura, raio em fraçêo da altura)
 python3 $K/scripts/broll-plano.py --fala aula.mp4 --transcricao $P/transcricao/transcript.json --projeto $P --rosto 0.58,0.45,0.38
 # 3. revisar $P/plano.md; editar $P/plano.json (tratamento, visual.titulo, visual.icone, itens) e refazer o plano.js
 python3 $K/scripts/broll-plano.py --projeto $P --replanejar

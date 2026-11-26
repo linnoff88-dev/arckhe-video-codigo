@@ -56,7 +56,7 @@ svg.ic{stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;strok
 #c4 .marca p{font-size:36px;color:var(--mut);margin:22px 0 0;font-weight:500}
 #c4 .marca p b{color:#fff;font-family:var(--mono)}
 
-/* ── 9:16: o mesmo projeto, outra composição ── */
+/* ── 9:16: o mesmo projeto, outra composiçêo ── */
 @media (orientation:portrait){
   #c1 h1{left:80px;top:170px;width:920px;font-size:124px}
   #c1 .cam{left:770px;top:520px;width:220px;height:220px}
@@ -84,9 +84,9 @@ svg.ic{stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;strok
 </style>
 
 <div id="c1" class="cena">
-  <h1>Este vídeo não tem <span class="y">câmera</span>.</h1>
+  <h1>Este vídeo nêo tem <span class="y">câmera</span>.</h1>
   <svg class="ic cam" viewBox="0 0 64 64"><rect x="6" y="18" width="40" height="30" rx="5"/><path d="M46 28l12-7v22l-12-7"/><circle cx="26" cy="33" r="7"/><path class="risco" d="M8 8l48 48" pathLength="1"/></svg>
-  <div class="box code"><div class="bar"><i></i><i></i><i></i></div><div class="tw l1"><span class="k">const</span> quadro = seek(t);</div><div class="tw l2">titulo.entra(pal(<span class="k">'câmera'</span>));</div><div class="tw l3">legenda.segue(TEMPOS);</div><div class="c tw l4">// cada quadro é uma função do tempo</div></div>
+  <div class="box code"><div class="bar"><i></i><i></i><i></i></div><div class="tw l1"><span class="k">const</span> quadro = seek(t);</div><div class="tw l2">titulo.entra(pal(<span class="k">'câmera'</span>));</div><div class="tw l3">legenda.segue(TEMPOS);</div><div class="c tw l4">// cada quadro é uma funçêo do tempo</div></div>
   <div class="box onda"><div class="rot">Voz local</div><div class="bars"></div><div class="tx">gerada no computador · sem API</div></div>
 </div>
 
@@ -181,7 +181,7 @@ const film = new Film()
       if (i < 3) { const s = $('#s' + (i + 1), c3), p = easeIO(t, m, Math.max(.3, marcos[i + 1] - m - .1));
         if (vertical()) { s.style.height = p * 100 + '%'; s.style.width = '100%'; } else { s.style.width = p * 100 + '%'; s.style.height = ''; } }
     });
-    // trilho: as marcas são os tempos reais de cada palavra dita
+    // trilho: as marcas sêo os tempos reais de cada palavra dita
     const W = lin.clientWidth, x = w => (w - t0s) / (t1s - t0s) * W;
     const sai = 1 - ease(t, ini('formatos') - .2, .4);
     lin.style.opacity = win(t, ini('sincronia') - .3, ini('formatos') - .1, .35, .35);
